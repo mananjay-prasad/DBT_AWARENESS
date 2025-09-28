@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -50,35 +52,39 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-50">
-        {isAuthenticated ? (
-          <>
-            <Header onLogout={handleLogout} />
-            <main className="pt-20">
+    <ThemeProvider>
+      <LanguageProvider>
+        <Router>
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+            {isAuthenticated ? (
+              <>
+                <Header onLogout={handleLogout} />
+                <main className="pt-20">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/guide" element={<Guide />} />
+                    <Route path="/check" element={<Check />} />
+                    <Route path="/track" element={<Track />} />
+                    <Route path="/gram-panchayat" element={<GramPanchayat />} />
+                    <Route path="/schools" element={<Schools />} />
+                    <Route path="/documents" element={<Documents />} />
+                    <Route path="*" element={<Navigate to="/" />} />
+                  </Routes>
+                </main>
+                <Footer />
+                <Chatbot />
+              </>
+            ) : (
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/guide" element={<Guide />} />
-                <Route path="/check" element={<Check />} />
-                <Route path="/track" element={<Track />} />
-                <Route path="/gram-panchayat" element={<GramPanchayat />} />
-                <Route path="/schools" element={<Schools />} />
-                <Route path="/documents" element={<Documents />} />
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                <Route path="*" element={<Navigate to="/login" />} />
               </Routes>
-            </main>
-            <Footer />
-            <Chatbot />
-          </>
-        ) : (
-          <Routes>
-            <Route path="/login" element={<Login onLogin={handleLogin} />} />
-            <Route path="*" element={<Navigate to="/login" />} />
-          </Routes>
-        )}
-      </div>
-    </Router>
+            )}
+          </div>
+        </Router>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

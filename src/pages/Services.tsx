@@ -9,47 +9,52 @@ import {
   FileText,
   ArrowRight 
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Services: React.FC = () => {
+  const { t } = useLanguage();
+  const { isDark } = useTheme();
+
   const services = [
     {
-      title: "Guide",
-      description: "Comprehensive guide on Aadhaar Link vs DBT with step-by-step instructions",
+      title: t('services.guide.title'),
+      description: t('services.guide.desc'),
       icon: BookOpen,
       link: "/guide",
       color: "blue"
     },
     {
-      title: "Check Status",
-      description: "Verify if your bank account is DBT enabled and Aadhaar linked",
+      title: t('services.check.title'),
+      description: t('services.check.desc'),
       icon: CheckCircle,
       link: "/check",
       color: "green"
     },
     {
-      title: "Track Scholarship",
-      description: "Track your scholarship application status like NSP portal",
+      title: t('services.track.title'),
+      description: t('services.track.desc'),
       icon: Search,
       link: "/track",
       color: "purple"
     },
     {
-      title: "Gram Panchayat",
-      description: "Find local Gram Panchayats with contact details and locations",
+      title: t('services.gp.title'),
+      description: t('services.gp.desc'),
       icon: MapPin,
       link: "/gram-panchayat",
       color: "orange"
     },
     {
-      title: "Schools Directory",
-      description: "Directory of local schools with principal contact information",
+      title: t('services.schools.title'),
+      description: t('services.schools.desc'),
       icon: School,
       link: "/schools",
       color: "indigo"
     },
     {
-      title: "Documents",
-      description: "Download important documents, forms, and guidance materials",
+      title: t('services.documents.title'),
+      description: t('services.documents.desc'),
       icon: FileText,
       link: "/documents",
       color: "red"
@@ -69,14 +74,15 @@ const Services: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className={`min-h-screen py-12 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Access comprehensive tools and resources to understand and manage your 
-            DBT-enabled Aadhaar-seeded bank account for scholarship benefits.
+          <h1 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            {t('services.title')}
+          </h1>
+          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -90,23 +96,27 @@ const Services: React.FC = () => {
               <Link
                 key={index}
                 to={service.link}
-                className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className={`group rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${
+                  isDark ? 'bg-gray-800 hover:bg-gray-750' : 'bg-white'
+                }`}
               >
                 <div className="p-6">
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${colorClasses.split(' ')[0]} group-hover:${colorClasses.split(' ')[1]} transition-colors`}>
                     <Icon className="text-white" size={32} />
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">
+                  <h3 className={`text-xl font-semibold mb-3 group-hover:text-orange-600 transition-colors ${
+                    isDark ? 'text-white' : 'text-gray-900'
+                  }`}>
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className={`mb-4 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                     {service.description}
                   </p>
                   
                   <div className="flex items-center text-orange-600 font-medium group-hover:text-orange-700">
-                    <span className="mr-2">Learn More</span>
+                    <span className="mr-2">{t('services.learnMore')}</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -118,29 +128,40 @@ const Services: React.FC = () => {
         {/* Additional Information */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Help Section */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Need Help?</h3>
-            <p className="text-gray-700 mb-6">
-              Our support team is available to assist you with any questions about 
-              DBT enrollment, scholarship tracking, or account verification.
+          <div className={`rounded-xl p-8 ${
+            isDark 
+              ? 'bg-gradient-to-br from-blue-900 to-indigo-900' 
+              : 'bg-gradient-to-br from-blue-50 to-indigo-50'
+          }`}>
+            <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              {t('services.help.title')}
+            </h3>
+            <p className={`mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              {t('services.help.desc')}
             </p>
             <div className="space-y-2">
-              <p className="text-gray-600">
+              <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
                 <strong>Helpline:</strong> 1800-XXX-XXXX (Toll Free)
               </p>
-              <p className="text-gray-600">
+              <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
                 <strong>Email:</strong> support@dbtportal.gov.in
               </p>
-              <p className="text-gray-600">
+              <p className={isDark ? 'text-gray-400' : 'text-gray-600'}>
                 <strong>Hours:</strong> Mon-Fri, 9:00 AM - 6:00 PM
               </p>
             </div>
           </div>
 
           {/* Quick Tips */}
-          <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Quick Tips</h3>
-            <ul className="space-y-3 text-gray-700">
+          <div className={`rounded-xl p-8 ${
+            isDark 
+              ? 'bg-gradient-to-br from-orange-900 to-red-900' 
+              : 'bg-gradient-to-br from-orange-50 to-red-50'
+          }`}>
+            <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              {t('services.tips.title')}
+            </h3>
+            <ul className={`space-y-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 Visit your bank branch with original Aadhaar card

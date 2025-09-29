@@ -30,7 +30,13 @@ const AIChat: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBVwwgUly3S-aQN5Id0puT8Ao9QHjX72IQ`, {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      
+      if (!apiKey) {
+        throw new Error('API key not configured. Please set VITE_GEMINI_API_KEY in your environment variables.');
+      }
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +63,15 @@ User question: ${message}`
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        if (response.status === 404) {
+          throw new Error('API endpoint not found. Please check your API key and ensure the Gemini API is enabled.');
+        } else if (response.status === 403) {
+          throw new Error('API access forbidden. Please check your API key permissions.');
+        } else if (response.status === 429) {
+          throw new Error('API rate limit exceeded. Please try again later.');
+        } else {
+          throw new Error(`API request failed with status ${response.status}. Please try again.`);
+        }
       }
 
       const data = await response.json();
@@ -78,9 +92,26 @@ User question: ${message}`
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
       console.error('AI Chat Error:', error);
+      
+      let errorText = 'Sorry, I encountered an error while processing your request.';
+      
+      if (error instanceof Error) {
+        if (error.message.includes('API key not configured')) {
+          errorText = 'AI Chat is not configured. Please contact the administrator to set up the API key.';
+        } else if (error.message.includes('API endpoint not found')) {
+          errorText = 'AI service is currently unavailable. Please try again later or contact support.';
+        } else if (error.message.includes('API access forbidden')) {
+          errorText = 'AI service access is restricted. Please contact the administrator.';
+        } else if (error.message.includes('rate limit')) {
+          errorText = 'AI service is busy. Please wait a moment and try again.';
+        } else if (error.message.includes('Failed to fetch')) {
+          errorText = 'Network connection error. Please check your internet connection and try again.';
+        }
+      }
+      
       const errorMessage: Message = {
         id: Date.now() + 1,
-        text: 'Sorry, I encountered an error while processing your request. Please check your internet connection and try again. If the problem persists, contact our helpline at 1800-XXX-XXXX.',
+        text: errorText + ' If the problem persists, contact our helpline at 1800-XXX-XXXX.',
         isUser: false,
         timestamp: new Date()
       };

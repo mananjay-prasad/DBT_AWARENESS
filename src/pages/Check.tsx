@@ -3,7 +3,7 @@ import { Search, CheckCircle, XCircle, AlertTriangle, CreditCard } from 'lucide-
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Check: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [aadhaarNumber, setAadhaarNumber] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [ifscCode, setIfscCode] = useState('');

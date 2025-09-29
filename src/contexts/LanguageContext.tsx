@@ -67,6 +67,51 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'guide.benefits.title': 'Benefits of DBT Enabled Account',
     'guide.issues.title': 'Common Issues & Solutions',
     'guide.help.title': 'Need Additional Help?',
+    'guide.step1.title': 'Visit Your Bank Branch',
+    'guide.step1.desc': 'Go to the branch where your account is held with original Aadhaar card and bank passbook.',
+    'guide.step2.title': 'Fill DBT Enrollment Form',
+    'guide.step2.desc': 'Request and complete the DBT enrollment form. Bank staff will assist you with the process.',
+    'guide.step3.title': 'Verify Details',
+    'guide.step3.desc': 'Ensure your Aadhaar details match with bank records. Update if there are any discrepancies.',
+    'guide.step4.title': 'DBT Activation',
+    'guide.step4.desc': 'Bank will activate DBT facility within 2-3 working days. You will receive SMS confirmation.',
+    'guide.aadhaar.features': [
+      'Basic Aadhaar number linked to account',
+      'Used for KYC compliance',
+      'May not receive direct benefits',
+      'Standard banking services',
+      'No special government transfer facility'
+    ],
+    'guide.dbt.features': [
+      'Specially configured for government benefits',
+      'Direct scholarship transfer capability',
+      'Required for SC scholarships',
+      'Faster, secure benefit disbursement',
+      'Eliminates middleman delays'
+    ],
+    'guide.documents.essential': [
+      'Original Aadhaar Card',
+      'Bank Account Passbook',
+      'Aadhaar-linked Mobile Number',
+      'DBT Enrollment Form'
+    ],
+    'guide.documents.additional': [
+      'Active Bank Account (not dormant)',
+      'Valid KYC Documents',
+      'Updated Address Proof'
+    ],
+    'guide.benefits.faster': 'Faster Transfer',
+    'guide.benefits.faster.desc': 'Direct transfer eliminates processing delays',
+    'guide.benefits.secure': '100% Secure',
+    'guide.benefits.secure.desc': 'No middleman involvement, completely secure',
+    'guide.benefits.full': 'Full Amount',
+    'guide.benefits.full.desc': 'Receive complete scholarship without deductions',
+    'guide.issues.mobile': 'Issue: Mobile number not linked to Aadhaar',
+    'guide.issues.mobile.solution': 'Solution: Visit nearest Aadhaar center to link mobile number first, or use mAadhaar app.',
+    'guide.issues.dormant': 'Issue: Account shows inactive/dormant',
+    'guide.issues.dormant.solution': 'Solution: Make a small deposit or withdrawal to reactivate account, then apply for DBT.',
+    'guide.issues.mismatch': 'Issue: Name mismatch between Aadhaar and bank account',
+    'guide.issues.mismatch.solution': 'Solution: Update name in either Aadhaar or bank account to ensure exact match.',
     
     // Check
     'check.title': 'Check Account Status',

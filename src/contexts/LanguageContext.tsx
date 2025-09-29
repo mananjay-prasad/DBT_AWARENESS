@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+type TranslationValue = string | string[];
+
 interface LanguageContextType {
   language: 'en' | 'hi';
   setLanguage: (lang: 'en' | 'hi') => void;
-  t: (key: string) => string;
+  t: (key: string) => TranslationValue;
 }
 
-const translations = {
+const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
   en: {
     // Header
     'header.title': 'DBT Awareness Portal',
@@ -288,8 +290,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<'en' | 'hi'>('en');
 
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations['en']] || key;
+  const t = (key: string): TranslationValue => {
+    return translations[language][key] || key;
   };
 
   return (

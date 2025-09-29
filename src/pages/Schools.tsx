@@ -3,7 +3,7 @@ import { Search, Phone, Mail, MapPin, School, FileText, Download, GraduationCap 
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Schools: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
   const [selectedType, setSelectedType] = useState('');
@@ -122,8 +122,8 @@ const Schools: React.FC = () => {
     const matchesSearch = school.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          school.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          school.principal.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesDistrict = selectedDistrict === '' || selectedDistrict === 'All Districts' || school.district === selectedDistrict;
-    const matchesType = selectedType === '' || selectedType === 'All Types' || school.type === selectedType;
+    const matchesDistrict = selectedDistrict === '' || selectedDistrict === t('gp.district.all') || school.district === selectedDistrict;
+    const matchesType = selectedType === '' || selectedType === t('schools.type.all') || school.type === selectedType;
     return matchesSearch && matchesDistrict && matchesType;
   });
 
@@ -169,9 +169,9 @@ const Schools: React.FC = () => {
               onChange={(e) => setSelectedDistrict(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
-              {districts.map(district => (
+              {districts.map((district, index) => (
                 <option key={district} value={district}>
-                  {district === 'All Districts' ? t('gp.district.all') : district}
+                  {index === 0 ? t('gp.district.all') : district}
                 </option>
               ))}
             </select>
@@ -196,12 +196,29 @@ const Schools: React.FC = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-xl font-bold text-gray-900">{school.name}</h3>
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {language === 'en' ? school.name :
+                          school.name === 'Government Senior Secondary School, Rampur' ? 'सरकारी वरिष्ठ माध्यमिक विद्यालय, रामपुर' :
+                          school.name === 'Holy Angels Higher Secondary School' ? 'होली एंजल्स उच्चतर माध्यमिक विद्यालय' :
+                          school.name === 'Sarvodaya Vidyalaya, Ganga Nagar' ? 'सर्वोदय विद्यालय, गंगा नगर' :
+                          school.name === 'Kendriya Vidyalaya, Krishnapur' ? 'केंद्रीय विद्यालय, कृष्णपुर' : school.name
+                        }
+                      </h3>
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${getTypeColor(school.type)}`}>
-                        {school.type}
+                        {language === 'en' ? school.type :
+                          school.type === 'Government' ? 'सरकारी' :
+                          school.type === 'Private' ? 'निजी' :
+                          school.type === 'Central Government' ? 'केंद्रीय सरकार' : school.type
+                        }
                       </span>
                     </div>
-                    <p className="text-gray-600">{school.level} • {school.district}</p>
+                    <p className="text-gray-600">
+                      {language === 'en' ? school.level :
+                        school.level === 'Secondary' ? 'माध्यमिक' :
+                        school.level === 'Higher Secondary' ? 'उच्चतर माध्यमिक' :
+                        school.level === 'Senior Secondary' ? 'वरिष्ठ माध्यमिक' : school.level
+                      } • {school.district}
+                    </p>
                   </div>
                   <div className="text-right">
                     <MapPin className="text-orange-500 inline-block mr-1" size={16} />
@@ -212,17 +229,21 @@ const Schools: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('schools.principal')}</p>
-                    <p className="font-medium">{school.principal.name}</p>
+                    <p className="font-medium">{language === 'en' ? school.principal.name : school.principal.name}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('schools.working.hours')}</p>
-                    <p className="font-medium text-green-600">{school.workingHours}</p>
+                    <p className="font-medium text-green-600">
+                      {language === 'en' ? school.workingHours : 'सोम-शनि: सुबह 8:00 - दोपहर 2:00'}
+                    </p>
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <p className="text-sm text-gray-500 mb-1">{t('schools.address')}</p>
-                  <p className="text-gray-700">{school.address}</p>
+                  <p className="text-gray-700">
+                    {language === 'en' ? school.address : 'रामपुर गांव, केंद्रीय जिला, पिन - 123456'}
+                  </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -239,12 +260,25 @@ const Schools: React.FC = () => {
                 <div className="mb-4">
                   <p className="text-sm text-gray-500 mb-2">{t('schools.key.facilities')}</p>
                   <div className="flex flex-wrap gap-2">
-                    {school.facilities.map((facility, index) => (
+                    {school.facilities.map((facility, facilityIndex) => (
                       <span
-                        key={index}
+                        key={facilityIndex}
                         className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full"
                       >
-                        {facility}
+                        {language === 'en' ? facility :
+                          facility === 'Computer Lab' ? 'कंप्यूटर लैब' :
+                          facility === 'Library' ? 'पुस्तकालय' :
+                          facility === 'Scholarship Desk' ? 'छात्रवृत्ति डेस्क' :
+                          facility === 'Smart Classes' ? 'स्मार्ट क्लासेस' :
+                          facility === 'Career Guidance' ? 'करियर मार्गदर्शन' :
+                          facility === 'Scholarship Cell' ? 'छात्रवृत्ति सेल' :
+                          facility === 'Science Lab' ? 'विज्ञान प्रयोगशाला' :
+                          facility === 'Computer Center' ? 'कंप्यूटर केंद्र' :
+                          facility === 'DBT Help Desk' ? 'डीबीटी हेल्प डेस्क' :
+                          facility === 'Digital Library' ? 'डिजिटल लाइब्रेरी' :
+                          facility === 'Counseling Center' ? 'परामर्श केंद्र' :
+                          facility === 'Financial Aid Office' ? 'वित्तीय सहायता कार्यालय' : facility
+                        }
                       </span>
                     ))}
                   </div>
@@ -325,10 +359,24 @@ const Schools: React.FC = () => {
                 {t('schools.school.resources')}
               </h3>
               <div className="space-y-3">
-                {documents.map((doc, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-3">
-                    <h4 className="font-medium text-gray-900 mb-1 text-sm">{doc.title}</h4>
-                    <p className="text-xs text-gray-600 mb-2">{doc.description}</p>
+                {documents.map((doc, docIndex) => (
+                  <div key={docIndex} className="border border-gray-200 rounded-lg p-3">
+                    <h4 className="font-medium text-gray-900 mb-1 text-sm">
+                      {language === 'en' ? doc.title :
+                        doc.title === 'School DBT Enrollment Protocol' ? 'स्कूल डीबीटी नामांकन प्रोटोकॉल' :
+                        doc.title === 'Student Information Brochure' ? 'छात्र सूचना ब्रोशर' :
+                        doc.title === 'Parent-Teacher Meeting Presentation' ? 'अभिभावक-शिक्षक बैठक प्रस्तुति' :
+                        doc.title === 'School Notice Board Template' ? 'स्कूल नोटिस बोर्ड टेम्प्लेट' : doc.title
+                      }
+                    </h4>
+                    <p className="text-xs text-gray-600 mb-2">
+                      {language === 'en' ? doc.description :
+                        doc.description === 'Guidelines for school administrators to assist students with DBT setup' ? 'छात्रों को डीबीटी सेटअप में सहायता करने के लिए स्कूल प्रशासकों के लिए दिशानिर्देश' :
+                        doc.description === 'Comprehensive brochure about Aadhaar vs DBT for distribution to students' ? 'छात्रों को वितरण के लिए आधार बनाम डीबीटी के बारे में व्यापक ब्रोशर' :
+                        doc.description === 'Ready-to-use presentation slides for PTA meetings on DBT awareness' ? 'डीबीटी जागरूकता पर पीटीए बैठकों के लिए तैयार प्रस्तुति स्लाइड' :
+                        doc.description === 'Template for displaying DBT information on school notice boards' ? 'स्कूल नोटिस बोर्ड पर डीबीटी जानकारी प्रदर्शित करने के लिए टेम्प्लेट' : doc.description
+                      }
+                    </p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-500">{doc.type} • {doc.size}</span>
                       <button className="flex items-center space-x-1 text-orange-600 hover:text-orange-700 text-xs">

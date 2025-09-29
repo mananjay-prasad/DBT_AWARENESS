@@ -116,13 +116,13 @@ const Documents: React.FC = () => {
 
   const categories = [
     { value: '', label: t('documents.filter') },
-    { value: 'Forms', label: t('documents.categories.forms') },
-    { value: 'Guides', label: t('documents.categories.guides') },
-    { value: 'Scholarship Forms', label: t('documents.categories.scholarship') },
-    { value: 'Reference', label: t('documents.categories.reference') },
-    { value: 'Certificates', label: t('documents.categories.certificates') },
-    { value: 'Guidelines', label: t('documents.categories.guidelines') },
-    { value: 'Brochures', label: t('documents.categories.brochures') }
+    { value: 'Forms', label: language === 'en' ? 'Forms' : 'फॉर्म' },
+    { value: 'Guides', label: language === 'en' ? 'Guides' : 'गाइड' },
+    { value: 'Scholarship Forms', label: language === 'en' ? 'Scholarship Forms' : 'छात्रवृत्ति फॉर्म' },
+    { value: 'Reference', label: language === 'en' ? 'Reference' : 'संदर्भ' },
+    { value: 'Certificates', label: language === 'en' ? 'Certificates' : 'प्रमाणपत्र' },
+    { value: 'Guidelines', label: language === 'en' ? 'Guidelines' : 'दिशानिर्देश' },
+    { value: 'Brochures', label: language === 'en' ? 'Brochures' : 'ब्रोशर' }
   ];
 
   const filteredDocuments = documents.filter(doc => {

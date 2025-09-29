@@ -150,19 +150,19 @@ const Services: React.FC = () => {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Visit your bank branch with original Aadhaar card
+                {t('services.tips.bank')}
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Ensure mobile number is linked with Aadhaar
+                {t('services.tips.mobile')}
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Keep your bank account active with regular transactions
+                {t('services.tips.active')}
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Update KYC if account details have changed
+                {t('services.tips.kyc')}
               </li>
             </ul>
           </div>

@@ -153,7 +153,7 @@ const Schools: React.FC = () => {
               <Search className="absolute left-3 top-3 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder="Search schools, principals, location..."
+                placeholder={t('schools.search.placeholder') as string}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
@@ -165,7 +165,7 @@ const Schools: React.FC = () => {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               {districts.map(district => (
-                <option key={district} value={district}>{district}</option>
+                <option key={district} value={district}>{district === 'All Districts' ? t('gp.district.all') : district}</option>
               ))}
             </select>
             <select
@@ -174,7 +174,7 @@ const Schools: React.FC = () => {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               {schoolTypes.map(type => (
-                <option key={type} value={type}>{type}</option>
+                <option key={type.value} value={type.value}>{type.label}</option>
               ))}
             </select>
           </div>
@@ -198,39 +198,39 @@ const Schools: React.FC = () => {
                   </div>
                   <div className="text-right">
                     <MapPin className="text-orange-500 inline-block mr-1" size={16} />
-                    <span className="text-sm text-gray-500">View Location</span>
+                    <span className="text-sm text-gray-500">{t('schools.view.location')}</span>
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">Principal</p>
+                    <p className="text-sm text-gray-500 mb-1">{t('schools.principal')}</p>
                     <p className="font-medium">{school.principal.name}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">Working Hours</p>
+                    <p className="text-sm text-gray-500 mb-1">{t('schools.working.hours')}</p>
                     <p className="font-medium text-green-600">{school.workingHours}</p>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-sm text-gray-500 mb-1">Address</p>
+                  <p className="text-sm text-gray-500 mb-1">{t('schools.address')}</p>
                   <p className="text-gray-700">{school.address}</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">Total Students</p>
+                    <p className="text-sm text-gray-500 mb-1">{t('schools.total.students')}</p>
                     <p className="font-medium">{school.totalStudents}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">SC Students</p>
+                    <p className="text-sm text-gray-500 mb-1">{t('schools.sc.students')}</p>
                     <p className="font-medium text-orange-600">{school.scStudents}</p>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-sm text-gray-500 mb-2">Key Facilities</p>
+                  <p className="text-sm text-gray-500 mb-2">{t('schools.key.facilities')}</p>
                   <div className="flex flex-wrap gap-2">
                     {school.facilities.map((facility, index) => (
                       <span
@@ -265,8 +265,8 @@ const Schools: React.FC = () => {
             {filteredSchools.length === 0 && (
               <div className="text-center py-12 bg-white rounded-xl shadow-lg">
                 <School className="text-gray-400 mx-auto mb-4" size={48} />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No Schools Found</h3>
-                <p className="text-gray-600">Try adjusting your search criteria or filters.</p>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">{t('schools.no.schools')}</h3>
+                <p className="text-gray-600">{t('schools.no.schools.desc')}</p>
               </div>
             )}
           </div>
@@ -277,36 +277,36 @@ const Schools: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                 <GraduationCap className="mr-2" size={20} />
-                Quick Stats
+                {t('schools.quick.stats')}
               </h3>
               <div className="space-y-4">
                 <div className="text-center p-3 bg-green-50 rounded-lg">
                   <div className="text-2xl font-bold text-green-600">
                     {schools.reduce((total, school) => total + school.totalStudents, 0)}
                   </div>
-                  <div className="text-sm text-gray-600">Total Students</div>
+                  <div className="text-sm text-gray-600">{t('schools.total.students.stat')}</div>
                 </div>
                 <div className="text-center p-3 bg-orange-50 rounded-lg">
                   <div className="text-2xl font-bold text-orange-600">
                     {schools.reduce((total, school) => total + school.scStudents, 0)}
                   </div>
-                  <div className="text-sm text-gray-600">SC Students</div>
+                  <div className="text-sm text-gray-600">{t('schools.sc.students.stat')}</div>
                 </div>
                 <div className="text-center p-3 bg-blue-50 rounded-lg">
                   <div className="text-2xl font-bold text-blue-600">{schools.length}</div>
-                  <div className="text-sm text-gray-600">Schools Listed</div>
+                  <div className="text-sm text-gray-600">{t('schools.schools.listed')}</div>
                 </div>
               </div>
             </div>
 
             {/* Map Placeholder */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">School Locations</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">{t('schools.school.locations')}</h3>
               <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
                 <div className="text-center text-gray-500">
                   <MapPin size={48} className="mx-auto mb-2" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">Will show school locations</p>
+                  <p>{t('schools.interactive.map')}</p>
+                  <p className="text-sm">{t('schools.will.show')}</p>
                 </div>
               </div>
             </div>
@@ -315,7 +315,7 @@ const Schools: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                 <FileText className="mr-2" size={20} />
-                School Resources
+                {t('schools.school.resources')}
               </h3>
               <div className="space-y-3">
                 {documents.map((doc, index) => (
@@ -336,18 +336,18 @@ const Schools: React.FC = () => {
 
             {/* Support */}
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-blue-900 mb-4">For Principals & Teachers</h3>
+              <h3 className="text-lg font-bold text-blue-900 mb-4">{t('schools.for.principals')}</h3>
               <div className="space-y-3 text-sm">
                 <p className="text-blue-800">
-                  Need training materials or guidance on helping students with DBT enrollment?
+                  {t('schools.training.help')}
                 </p>
                 <div className="flex items-center space-x-2">
                   <Phone className="text-blue-600" size={16} />
-                  <span className="text-blue-800">Training Helpline: 1800-XXX-YYYY</span>
+                  <span className="text-blue-800">{t('schools.training.helpline')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="text-blue-600" size={16} />
-                  <span className="text-blue-800">training@dbtportal.gov.in</span>
+                  <span className="text-blue-800">{t('schools.training.email')}</span>
                 </div>
               </div>
             </div>

@@ -113,7 +113,7 @@ const GramPanchayat: React.FC = () => {
               <Search className="absolute left-3 top-3 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder="Search by name, location, or sarpanch..."
+                placeholder={t('gp.search.placeholder') as string}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
@@ -125,7 +125,7 @@ const GramPanchayat: React.FC = () => {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               {districts.map(district => (
-                <option key={district} value={district}>{district}</option>
+                <option key={district} value={district}>{district === 'All Districts' ? t('gp.district.all') : district}</option>
               ))}
             </select>
           </div>
@@ -144,28 +144,28 @@ const GramPanchayat: React.FC = () => {
                   </div>
                   <div className="text-right">
                     <MapPin className="text-orange-500 inline-block mr-1" size={16} />
-                    <span className="text-sm text-gray-500">View on Map</span>
+                    <span className="text-sm text-gray-500">{t('gp.view.map')}</span>
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">Sarpanch</p>
+                    <p className="text-sm text-gray-500 mb-1">{t('gp.sarpanch')}</p>
                     <p className="font-medium">{gp.sarpanch}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">Working Hours</p>
+                    <p className="text-sm text-gray-500 mb-1">{t('gp.working.hours')}</p>
                     <p className="font-medium text-green-600">{gp.workingHours}</p>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-sm text-gray-500 mb-1">Address</p>
+                  <p className="text-sm text-gray-500 mb-1">{t('gp.address')}</p>
                   <p className="text-gray-700">{gp.address}</p>
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-sm text-gray-500 mb-2">Services Offered</p>
+                  <p className="text-sm text-gray-500 mb-2">{t('gp.services.offered')}</p>
                   <div className="flex flex-wrap gap-2">
                     {gp.services.map((service, index) => (
                       <span
@@ -200,8 +200,8 @@ const GramPanchayat: React.FC = () => {
             {filteredPanchayats.length === 0 && (
               <div className="text-center py-12 bg-white rounded-xl shadow-lg">
                 <MapPin className="text-gray-400 mx-auto mb-4" size={48} />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No Results Found</h3>
-                <p className="text-gray-600">Try adjusting your search terms or filters.</p>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">{t('gp.no.results')}</h3>
+                <p className="text-gray-600">{t('gp.no.results.desc')}</p>
               </div>
             )}
           </div>
@@ -210,12 +210,12 @@ const GramPanchayat: React.FC = () => {
           <div className="space-y-6">
             {/* Map Placeholder */}
             <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Location Map</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">{t('gp.location.map')}</h3>
               <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
                 <div className="text-center text-gray-500">
                   <MapPin size={48} className="mx-auto mb-2" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">Will show GP locations</p>
+                  <p>{t('gp.interactive.map')}</p>
+                  <p className="text-sm">{t('gp.will.show')}</p>
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@ const GramPanchayat: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                 <FileText className="mr-2" size={20} />
-                Important Documents
+                {t('gp.important.documents')}
               </h3>
               <div className="space-y-3">
                 {documents.map((doc, index) => (
@@ -245,19 +245,17 @@ const GramPanchayat: React.FC = () => {
 
             {/* Quick Contact */}
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-orange-900 mb-4">Need Immediate Help?</h3>
+              <h3 className="text-lg font-bold text-orange-900 mb-4">{t('gp.need.help')}</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex items-center space-x-2">
                   <Phone className="text-orange-600" size={16} />
-                  <span className="text-orange-800">Toll Free: 1800-XXX-XXXX</span>
+                  <span className="text-orange-800">{t('gp.toll.free')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="text-orange-600" size={16} />
-                  <span className="text-orange-800">help@dbtportal.gov.in</span>
+                  <span className="text-orange-800">{t('gp.email')}</span>
                 </div>
-                <p className="text-orange-700 text-xs mt-3">
-                  Available Mon-Fri, 9:00 AM - 6:00 PM for technical support and guidance.
-                </p>
+                <p className="text-orange-700 text-xs mt-3">{t('gp.available.hours')}</p>
               </div>
             </div>
           </div>

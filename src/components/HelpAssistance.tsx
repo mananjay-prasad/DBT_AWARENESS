@@ -18,13 +18,13 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
   const helpSections = [
     {
       id: 'contact',
-      title: t('language') === 'en' ? 'Contact Support' : 'संपर्क सहायता',
+      title: t('help.contact.title'),
       icon: Phone,
       content: (
         <div className="space-y-4">
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-blue-50'}`}>
             <h4 className={`font-semibold mb-2 ${isDark ? 'text-blue-300' : 'text-blue-800'}`}>
-              {t('language') === 'en' ? '24/7 Helpline' : '24/7 हेल्पलाइन'}
+              {t('help.helpline.title')}
             </h4>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
@@ -38,7 +38,7 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
               <div className="flex items-center space-x-2">
                 <Clock size={16} className={isDark ? 'text-orange-400' : 'text-orange-600'} />
                 <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>
-                  {t('language') === 'en' ? 'Mon-Fri: 9:00 AM - 6:00 PM' : 'सोम-शुक्र: सुबह 9:00 - शाम 6:00'}
+                  {t('help.hours')}
                 </span>
               </div>
             </div>
@@ -46,10 +46,10 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
 
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-green-50'}`}>
             <h4 className={`font-semibold mb-2 ${isDark ? 'text-green-300' : 'text-green-800'}`}>
-              {t('language') === 'en' ? 'WhatsApp Support' : 'व्हाट्सएप सहायता'}
+              {t('help.whatsapp.title')}
             </h4>
             <p className={`text-sm mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-              {t('language') === 'en' ? 'Get instant help via WhatsApp' : 'व्हाट्सएप के माध्यम से तुरंत सहायता प्राप्त करें'}
+              {t('help.whatsapp.desc')}
             </p>
             <button className={`px-4 py-2 rounded-lg text-sm font-medium ${
               isDark 
@@ -57,7 +57,7 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
                 : 'bg-green-500 hover:bg-green-600 text-white'
             } transition-colors`}>
               <MessageCircle size={16} className="inline mr-2" />
-              {t('language') === 'en' ? 'Chat on WhatsApp' : 'व्हाट्सएप पर चैट करें'}
+              {t('help.whatsapp.button')}
             </button>
           </div>
         </div>
@@ -65,23 +65,17 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
     },
     {
       id: 'faq',
-      title: t('language') === 'en' ? 'FAQ' : 'अक्सर पूछे जाने वाले प्रश्न',
+      title: t('help.faq.title'),
       icon: FileText,
       content: (
         <div className="space-y-4">
           <div className={`border rounded-lg ${isDark ? 'border-gray-600' : 'border-gray-200'}`}>
             <details className="p-4">
               <summary className={`font-medium cursor-pointer ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                {t('language') === 'en' 
-                  ? 'What is the difference between Aadhaar-linked and DBT-enabled account?'
-                  : 'आधार-लिंक्ड और डीबीटी-सक्षम खाते के बीच क्या अंतर है?'
-                }
+                {t('help.faq.q1')}
               </summary>
               <p className={`mt-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                {t('language') === 'en'
-                  ? 'An Aadhaar-linked account simply has your Aadhaar number associated with it. A DBT-enabled account is specially configured to receive government benefits directly.'
-                  : 'आधार-लिंक्ड खाते में केवल आपका आधार नंबर जुड़ा होता है। डीबीटी-सक्षम खाता सरकारी लाभ सीधे प्राप्त करने के लिए विशेष रूप से कॉन्फ़िगर किया गया है।'
-                }
+                {t('help.faq.a1')}
               </p>
             </details>
           </div>
@@ -89,16 +83,10 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
           <div className={`border rounded-lg ${isDark ? 'border-gray-600' : 'border-gray-200'}`}>
             <details className="p-4">
               <summary className={`font-medium cursor-pointer ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                {t('language') === 'en'
-                  ? 'How do I enable DBT on my account?'
-                  : 'मैं अपने खाते पर डीबीटी कैसे सक्षम करूं?'
-                }
+                {t('help.faq.q2')}
               </summary>
               <p className={`mt-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                {t('language') === 'en'
-                  ? 'Visit your bank branch with Aadhaar card and bank passbook. Fill the DBT enrollment form and submit it. The bank will activate DBT within 2-3 working days.'
-                  : 'आधार कार्ड और बैंक पासबुक के साथ अपनी बैंक शाखा में जाएं। डीबीटी नामांकन फॉर्म भरें और जमा करें। बैंक 2-3 कार्य दिवसों के भीतर डीबीटी सक्रिय कर देगा।'
-                }
+                {t('help.faq.a2')}
               </p>
             </details>
           </div>
@@ -106,16 +94,10 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
           <div className={`border rounded-lg ${isDark ? 'border-gray-600' : 'border-gray-200'}`}>
             <details className="p-4">
               <summary className={`font-medium cursor-pointer ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                {t('language') === 'en'
-                  ? 'Why is my scholarship not being disbursed?'
-                  : 'मेरी छात्रवृत्ति का वितरण क्यों नहीं हो रहा?'
-                }
+                {t('help.faq.q3')}
               </summary>
               <p className={`mt-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                {t('language') === 'en'
-                  ? 'Common reasons include: DBT not enabled, account dormant, name mismatch between Aadhaar and bank account, or incomplete application documents.'
-                  : 'सामान्य कारणों में शामिल हैं: डीबीटी सक्षम नहीं, खाता निष्क्रिय, आधार और बैंक खाते के बीच नाम मेल नहीं खाता, या अधूरे आवेदन दस्तावेज।'
-                }
+                {t('help.faq.a3')}
               </p>
             </details>
           </div>
@@ -124,13 +106,13 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
     },
     {
       id: 'resources',
-      title: t('language') === 'en' ? 'Resources' : 'संसाधन',
+      title: t('help.resources.title'),
       icon: ExternalLink,
       content: (
         <div className="space-y-4">
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-50'}`}>
             <h4 className={`font-semibold mb-3 ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-              {t('language') === 'en' ? 'Useful Links' : 'उपयोगी लिंक'}
+              {t('help.useful.links')}
             </h4>
             <div className="space-y-2">
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
@@ -150,21 +132,21 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
 
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-yellow-50'}`}>
             <h4 className={`font-semibold mb-2 ${isDark ? 'text-yellow-300' : 'text-yellow-800'}`}>
-              {t('language') === 'en' ? 'Video Tutorials' : 'वीडियो ट्यूटोरियल'}
+              {t('help.video.tutorials')}
             </h4>
             <p className={`text-sm mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-              {t('language') === 'en' ? 'Watch step-by-step video guides' : 'चरण-दर-चरण वीडियो गाइड देखें'}
+              {t('help.video.desc')}
             </p>
             <div className="space-y-2">
               <button className={`block w-full text-left text-sm p-2 rounded ${
                 isDark ? 'bg-gray-600 hover:bg-gray-500 text-gray-200' : 'bg-white hover:bg-gray-50 text-gray-700'
               } transition-colors`}>
-                {t('language') === 'en' ? 'How to Enable DBT (Hindi)' : 'डीबीटी कैसे सक्षम करें (हिंदी)'}
+                {language === 'en' ? 'How to Enable DBT (Hindi)' : 'डीबीटी कैसे सक्षम करें (हिंदी)'}
               </button>
               <button className={`block w-full text-left text-sm p-2 rounded ${
                 isDark ? 'bg-gray-600 hover:bg-gray-500 text-gray-200' : 'bg-white hover:bg-gray-50 text-gray-700'
               } transition-colors`}>
-                {t('language') === 'en' ? 'Scholarship Application Process' : 'छात्रवृत्ति आवेदन प्रक्रिया'}
+                {language === 'en' ? 'Scholarship Application Process' : 'छात्रवृत्ति आवेदन प्रक्रिया'}
               </button>
             </div>
           </div>

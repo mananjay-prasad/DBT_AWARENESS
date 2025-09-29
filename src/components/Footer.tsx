@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { isDark } = useTheme();
 
   return (
@@ -23,10 +23,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{t('language') === 'en' ? 'DBT Guide' : 'डीबीटी गाइड'}</span></li>
-              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{t('language') === 'en' ? 'Account Check' : 'खाता जांच'}</span></li>
-              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{t('language') === 'en' ? 'Track Scholarship' : 'छात्रवृत्ति ट्रैक करें'}</span></li>
-              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{t('language') === 'en' ? 'Documents' : 'दस्तावेज़'}</span></li>
+              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{language === 'en' ? 'DBT Guide' : 'डीबीटी गाइड'}</span></li>
+              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{language === 'en' ? 'Account Check' : 'खाता जांच'}</span></li>
+              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{language === 'en' ? 'Track Scholarship' : 'छात्रवृत्ति ट्रैक करें'}</span></li>
+              <li><span className="text-gray-300 hover:text-white transition-colors cursor-pointer">{language === 'en' ? 'Documents' : 'दस्तावेज़'}</span></li>
             </ul>
           </div>
 
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">{t('footer.ministry')}</h3>
             <p className="text-gray-300 text-sm">
               {t('footer.ministryName')}<br />
-              {t('language') === 'en' ? 'Government of India' : 'भारत सरकार'}
+              {language === 'en' ? 'Government of India' : 'भारत सरकार'}
             </p>
             <div className="mt-4 flex space-x-1">
               <div className="w-6 h-4 bg-orange-500"></div>

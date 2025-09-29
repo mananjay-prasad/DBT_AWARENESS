@@ -35,13 +35,13 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo and title */}
-          <div className="flex items-center min-w-0 flex-1 sm:flex-none mr-2">
+          <div className="flex items-center min-w-0 flex-1 sm:flex-none mr-4">
             <div className="flex-shrink-0 flex items-center">
               <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-3">
                 DBT
               </div>
               <div className="min-w-0">
-                <h1 className={`text-sm sm:text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                <h1 className={`text-xs sm:text-lg font-bold ${isDark ? 'text-white' : 'text-gray-900'} leading-tight`}>
                   {t('header.title')}
                 </h1>
                 <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'} hidden md:block`}>
@@ -75,12 +75,13 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
-              className={`flex items-center space-x-1 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
+              className={`flex items-center space-x-1 px-2 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors flex-shrink-0 ${
                 isDark ? 'text-gray-300 hover:text-orange-400 hover:bg-gray-800' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
               }`}
             >
               <Globe size={16} />
-              <span>{language === 'en' ? 'हिं' : 'EN'}</span>
+              <span className="hidden sm:inline">{language === 'en' ? 'हिं' : 'EN'}</span>
+              <span className="sm:hidden">{language === 'en' ? 'हि' : 'EN'}</span>
             </button>
 
             {/* Help Button */}

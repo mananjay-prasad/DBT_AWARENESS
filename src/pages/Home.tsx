@@ -180,27 +180,27 @@ const Home: React.FC = () => {
 
         {/* Quick Stats */}
         <section className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="text-center p-6 rounded-lg shadow-lg bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+            <div className="text-center p-6 rounded-lg shadow-lg bg-white flex flex-col items-center justify-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="text-orange-600" size={32} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">10L+</h3>
-              <p className="text-gray-600 text-sm sm:text-base">{t('home.stats.students')}</p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">10L+</h3>
+              <p className="text-gray-600 text-sm sm:text-base text-center leading-tight">{t('home.stats.students')}</p>
             </div>
-            <div className="text-center p-6 rounded-lg shadow-lg bg-white">
+            <div className="text-center p-6 rounded-lg shadow-lg bg-white flex flex-col items-center justify-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CreditCard className="text-green-600" size={32} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">₹500Cr+</h3>
-              <p className="text-gray-600 text-sm sm:text-base">{t('home.stats.disbursed')}</p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">₹500Cr+</h3>
+              <p className="text-gray-600 text-sm sm:text-base text-center leading-tight">{t('home.stats.disbursed')}</p>
             </div>
-            <div className="text-center p-6 rounded-lg shadow-lg bg-white">
+            <div className="text-center p-6 rounded-lg shadow-lg bg-white flex flex-col items-center justify-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="text-blue-600" size={32} />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">100%</h3>
-              <p className="text-gray-600 text-sm sm:text-base">{t('home.stats.secure')}</p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-gray-900">100%</h3>
+              <p className="text-gray-600 text-sm sm:text-base text-center leading-tight">{t('home.stats.secure')}</p>
             </div>
           </div>
         </section>

@@ -224,7 +224,7 @@ const Guide: React.FC = () => {
                 <h3 className="font-semibold text-gray-900">{t('guide.help.call')}</h3>
                 <p className="text-gray-700">1800-XXX-XXXX (Toll Free)</p>
                 <p className="text-gray-500 text-sm">
-                  {t('language') === 'en' ? 'Available Mon-Fri, 9:00 AM - 6:00 PM' : 'सोमवार-शुक्रवार, सुबह 9 बजे - शाम 6 बजे उपलब्ध'}
+                  {t('help.available')}
                 </p>
               </div>
             </div>

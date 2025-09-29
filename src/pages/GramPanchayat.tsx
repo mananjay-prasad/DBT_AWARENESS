@@ -91,7 +91,7 @@ const GramPanchayat: React.FC = () => {
     const matchesSearch = gp.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          gp.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          gp.sarpanch.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesDistrict = selectedDistrict === '' || selectedDistrict === 'All Districts' || gp.district === selectedDistrict;
+    const matchesDistrict = selectedDistrict === '' || selectedDistrict === t('gp.district.all') || gp.district === selectedDistrict;
     return matchesSearch && matchesDistrict;
   });
 
@@ -124,9 +124,9 @@ const GramPanchayat: React.FC = () => {
               onChange={(e) => setSelectedDistrict(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
-              {districts.map(district => (
+              {districts.map((district, index) => (
                 <option key={district} value={district}>
-                  {district === 'All Districts' ? t('gp.district.all') : district}
+                  {index === 0 ? t('gp.district.all') : district}
                 </option>
               ))}
             </select>
@@ -153,28 +153,41 @@ const GramPanchayat: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('gp.sarpanch')}</p>
-                    <p className="font-medium">{gp.sarpanch}</p>
+                    <p className="font-medium">{language === 'en' ? gp.sarpanch : gp.sarpanch}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('gp.working.hours')}</p>
-                    <p className="font-medium text-green-600">{gp.workingHours}</p>
+                    <p className="font-medium text-green-600">{language === 'en' ? gp.workingHours : 'सोम-शुक्र: सुबह 10:00 - शाम 4:00'}</p>
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <p className="text-sm text-gray-500 mb-1">{t('gp.address')}</p>
-                  <p className="text-gray-700">{gp.address}</p>
+                  <p className="text-gray-700">{language === 'en' ? gp.address : 'गांव रामपुर, ब्लॉक - केंद्रीय, पिन - 123456'}</p>
                 </div>
 
                 <div className="mb-4">
                   <p className="text-sm text-gray-500 mb-2">{t('gp.services.offered')}</p>
                   <div className="flex flex-wrap gap-2">
-                    {gp.services.map((service, index) => (
+                    {gp.services.map((service, serviceIndex) => (
                       <span
-                        key={index}
+                        key={serviceIndex}
                         className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full"
                       >
-                        {service}
+                        {language === 'en' ? service : 
+                          service === 'DBT Enrollment' ? 'डीबीटी नामांकन' :
+                          service === 'Aadhaar Services' ? 'आधार सेवाएं' :
+                          service === 'Scholarship Guidance' ? 'छात्रवृत्ति मार्गदर्शन' :
+                          service === 'DBT Support' ? 'डीबीटी सहायता' :
+                          service === 'Document Verification' ? 'दस्तावेज़ सत्यापन' :
+                          service === 'Application Assistance' ? 'आवेदन सहायता' :
+                          service === 'Financial Inclusion' ? 'वित्तीय समावेश' :
+                          service === 'Digital Literacy' ? 'डिजिटल साक्षरता' :
+                          service === 'Scholarship Info' ? 'छात्रवृत्ति जानकारी' :
+                          service === 'Bank Account Opening' ? 'बैंक खाता खोलना' :
+                          service === 'DBT Activation' ? 'डीबीटी सक्रियकरण' :
+                          service === 'KYC Support' ? 'केवाईसी सहायता' : service
+                        }
                       </span>
                     ))}
                   </div>
@@ -229,10 +242,24 @@ const GramPanchayat: React.FC = () => {
                 {t('gp.important.documents')}
               </h3>
               <div className="space-y-3">
-                {documents.map((doc, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-3">
-                    <h4 className="font-medium text-gray-900 mb-1">{doc.title}</h4>
-                    <p className="text-sm text-gray-600 mb-2">{doc.description}</p>
+                {documents.map((doc, docIndex) => (
+                  <div key={docIndex} className="border border-gray-200 rounded-lg p-3">
+                    <h4 className="font-medium text-gray-900 mb-1">
+                      {language === 'en' ? doc.title :
+                        doc.title === 'DBT Enrollment Guide for Gram Panchayats' ? 'ग्राम पंचायतों के लिए डीबीटी नामांकन गाइड' :
+                        doc.title === 'Aadhaar vs DBT Awareness Poster' ? 'आधार बनाम डीबीटी जागरूकता पोस्टर' :
+                        doc.title === 'Common Issues Resolution Manual' ? 'सामान्य समस्याओं का समाधान मैनुअल' :
+                        doc.title === 'Scholarship Application Checklist' ? 'छात्रवृत्ति आवेदन चेकलिस्ट' : doc.title
+                      }
+                    </h4>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {language === 'en' ? doc.description :
+                        doc.description === 'Step-by-step guide for GP officials to help residents with DBT enrollment' ? 'निवासियों को डीबीटी नामांकन में मदद करने के लिए जीपी अधिकारियों के लिए चरण-दर-चरण गाइड' :
+                        doc.description === 'Educational poster for display at GP offices' ? 'जीपी कार्यालयों में प्रदर्शन के लिए शैक्षिक पोस्टर' :
+                        doc.description === 'Solutions for frequently encountered DBT and Aadhaar linking problems' ? 'अक्सर आने वाली डीबीटी और आधार लिंकिंग समस्याओं के समाधान' :
+                        doc.description === 'Complete checklist for SC scholarship applications' ? 'एससी छात्रवृत्ति आवेदन के लिए पूर्ण चेकलिस्ट' : doc.description
+                      }
+                    </p>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-gray-500">{doc.type} • {doc.size}</span>
                       <button className="flex items-center space-x-1 text-orange-600 hover:text-orange-700 text-sm">

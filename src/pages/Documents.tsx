@@ -115,7 +115,7 @@ const Documents: React.FC = () => {
   ];
 
   const categories = [
-    { value: '', label: t('documents.filter.all') },
+    { value: '', label: t('documents.filter') },
     { value: 'Forms', label: t('documents.categories.forms') },
     { value: 'Guides', label: t('documents.categories.guides') },
     { value: 'Scholarship Forms', label: t('documents.categories.scholarship') },
@@ -165,7 +165,7 @@ const Documents: React.FC = () => {
               <Search className="absolute left-3 top-3 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder={t('documents.search.placeholder') as string}
+                placeholder={t('documents.search') as string}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
@@ -189,10 +189,10 @@ const Documents: React.FC = () => {
 
           <div className="mt-4 flex flex-wrap items-center justify-between text-sm text-gray-600">
             <span>
-              {t('documents.showing.text')} {filteredDocuments.length} {language === 'en' ? 'documents' : 'दस्तावेज़'}
+              {t('documents.showing')} {filteredDocuments.length} {language === 'en' ? 'documents' : 'दस्तावेज़'}
             </span>
             <span>
-              {t('documents.total.downloads')} {totalDownloads.toLocaleString()}
+              {t('documents.total')} {totalDownloads.toLocaleString()}
             </span>
           </div>
         </div>
@@ -205,7 +205,7 @@ const Documents: React.FC = () => {
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <FileText className="mr-2 text-orange-500" size={24} />
-                  {t('documents.essential.title')}
+                  {t('documents.essential')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {essentialDocuments.map((doc) => (
@@ -237,7 +237,7 @@ const Documents: React.FC = () => {
             {/* All Documents */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                {t('documents.all.title')}
+                {t('documents.all')}
               </h2>
               
               {filteredDocuments.length > 0 ? (
@@ -268,8 +268,8 @@ const Documents: React.FC = () => {
               ) : (
                 <div className="text-center py-12 bg-white rounded-lg shadow-md">
                   <FileText className="text-gray-400 mx-auto mb-4" size={48} />
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">{t('documents.no.results')}</h3>
-                  <p className="text-gray-600">{t('documents.no.results.desc')}</p>
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">{t('documents.noResults')}</h3>
+                  <p className="text-gray-600">{t('documents.noResults.desc')}</p>
                 </div>
               )}
             </div>

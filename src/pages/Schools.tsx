@@ -111,7 +111,12 @@ const Schools: React.FC = () => {
   ];
 
   const districts = ["All Districts", "Central District", "North District", "South District", "East District"];
-  const schoolTypes = ["All Types", "Government", "Private", "Central Government"];
+  const schoolTypes = [
+    { value: "All Types", label: t('schools.type.all') },
+    { value: "Government", label: t('schools.type.government') },
+    { value: "Private", label: t('schools.type.private') },
+    { value: "Central Government", label: t('schools.type.central') }
+  ];
 
   const filteredSchools = schools.filter(school => {
     const matchesSearch = school.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

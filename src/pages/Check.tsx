@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Search, CheckCircle, XCircle, AlertTriangle, CreditCard } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Check: React.FC = () => {
+  const { t } = useLanguage();
   const [aadhaarNumber, setAadhaarNumber] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [ifscCode, setIfscCode] = useState('');
@@ -52,9 +54,9 @@ const Check: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Check Account Status</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('check.title')}</h1>
           <p className="text-xl text-gray-600">
-            Verify if your bank account is DBT enabled and Aadhaar linked
+            {t('check.subtitle')}
           </p>
         </div>
 

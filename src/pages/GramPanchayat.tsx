@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Search, FileText, Download } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const GramPanchayat: React.FC = () => {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
 
@@ -98,9 +100,9 @@ const GramPanchayat: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Gram Panchayat Directory</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('gp.title')}</h1>
           <p className="text-xl text-gray-600">
-            Find your local Gram Panchayat for DBT enrollment and scholarship assistance
+            {t('gp.subtitle')}
           </p>
         </div>
 

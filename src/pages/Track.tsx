@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Search, Clock, CheckCircle, XCircle, AlertCircle, FileText } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Track: React.FC = () => {
+  const { t } = useLanguage();
   const [applicationId, setApplicationId] = useState('');
   const [loading, setLoading] = useState(false);
   const [trackingResult, setTrackingResult] = useState<any>(null);
@@ -109,9 +111,9 @@ const Track: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Track Your Scholarship</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('track.title')}</h1>
           <p className="text-xl text-gray-600">
-            Check the status of your Pre-Matric or Post-Matric scholarship application
+            {t('track.subtitle')}
           </p>
         </div>
 

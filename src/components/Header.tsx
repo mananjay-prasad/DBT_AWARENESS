@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, LogOut, Globe, Moon, Sun, HelpCircle } from 'lucide-react';
+import { Menu, X, User, LogOut, Globe, HelpCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 import HelpAssistance from './HelpAssistance';
@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const location = useLocation();
   const { language, setLanguage, t } = useLanguage();
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark } = useTheme();
 
   const navItems = [
     { name: t('header.home'), path: '/' },
@@ -81,16 +81,6 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
             >
               <Globe size={16} />
               <span>{language === 'en' ? 'हिं' : 'EN'}</span>
-            </button>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-md transition-colors ${
-                isDark ? 'text-gray-300 hover:text-orange-400 hover:bg-gray-800' : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
-              }`}
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
             {/* Help Button */}

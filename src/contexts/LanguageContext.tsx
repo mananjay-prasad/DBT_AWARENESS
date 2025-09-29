@@ -56,6 +56,41 @@ const translations = {
     'services.help.desc': 'Our support team is available to assist you with any questions about DBT enrollment, scholarship tracking, or account verification.',
     'services.tips.title': 'Quick Tips',
     
+    // Guide
+    'guide.title': 'Complete Guide: Aadhaar Link vs DBT',
+    'guide.subtitle': 'Everything you need to know about enabling DBT for scholarship benefits',
+    'guide.difference.title': 'What\'s the Difference?',
+    'guide.howto.title': 'How to Enable DBT: Step-by-Step',
+    'guide.documents.title': 'Required Documents',
+    'guide.benefits.title': 'Benefits of DBT Enabled Account',
+    'guide.issues.title': 'Common Issues & Solutions',
+    'guide.help.title': 'Need Additional Help?',
+    
+    // Check
+    'check.title': 'Check Account Status',
+    'check.subtitle': 'Verify if your bank account is DBT enabled and Aadhaar linked',
+    
+    // Track
+    'track.title': 'Track Your Scholarship',
+    'track.subtitle': 'Check the status of your Pre-Matric or Post-Matric scholarship application',
+    
+    // Documents
+    'documents.title': 'Document Library',
+    'documents.subtitle': 'Download important documents, forms, and guidance materials for DBT and scholarships',
+    
+    // Schools
+    'schools.title': 'Schools Directory',
+    'schools.subtitle': 'Connect with local schools and principals for DBT guidance and scholarship support',
+    
+    // Gram Panchayat
+    'gp.title': 'Gram Panchayat Directory',
+    'gp.subtitle': 'Find your local Gram Panchayat for DBT enrollment and scholarship assistance',
+    
+    // Chat
+    'chat.placeholder': 'Ask me about DBT, scholarships, or account verification...',
+    'chat.send': 'Send',
+    'chat.title': 'Ask AI Assistant',
+    
     // Common
     'common.loading': 'Loading...',
     'common.search': 'Search...',
@@ -123,6 +158,41 @@ const translations = {
     'services.help.title': 'सहायता चाहिए?',
     'services.help.desc': 'हमारी सहायता टीम डीबीटी नामांकन, छात्रवृत्ति ट्रैकिंग, या खाता सत्यापन के बारे में किसी भी प्रश्न के साथ आपकी सहायता के लिए उपलब्ध है।',
     'services.tips.title': 'त्वरित सुझाव',
+    
+    // Guide
+    'guide.title': 'पूर्ण गाइड: आधार लिंक बनाम डीबीटी',
+    'guide.subtitle': 'छात्रवृत्ति लाभों के लिए डीबीटी सक्षम करने के बारे में आपको जो कुछ जानना चाहिए',
+    'guide.difference.title': 'क्या अंतर है?',
+    'guide.howto.title': 'डीबीटी कैसे सक्षम करें: चरण-दर-चरण',
+    'guide.documents.title': 'आवश्यक दस्तावेज',
+    'guide.benefits.title': 'डीबीटी सक्षम खाते के लाभ',
+    'guide.issues.title': 'सामान्य समस्याएं और समाधान',
+    'guide.help.title': 'अतिरिक्त सहायता चाहिए?',
+    
+    // Check
+    'check.title': 'खाता स्थिति जांचें',
+    'check.subtitle': 'सत्यापित करें कि आपका बैंक खाता डीबीटी सक्षम और आधार लिंक्ड है',
+    
+    // Track
+    'track.title': 'अपनी छात्रवृत्ति ट्रैक करें',
+    'track.subtitle': 'अपनी प्री-मैट्रिक या पोस्ट-मैट्रिक छात्रवृत्ति आवेदन की स्थिति जांचें',
+    
+    // Documents
+    'documents.title': 'दस्तावेज़ लाइब्रेरी',
+    'documents.subtitle': 'डीबीटी और छात्रवृत्ति के लिए महत्वपूर्ण दस्तावेज़, फॉर्म और मार्गदर्शन सामग्री डाउनलोड करें',
+    
+    // Schools
+    'schools.title': 'स्कूल निर्देशिका',
+    'schools.subtitle': 'डीबीटी मार्गदर्शन और छात्रवृत्ति सहायता के लिए स्थानीय स्कूलों और प्रधानाचार्यों से जुड़ें',
+    
+    // Gram Panchayat
+    'gp.title': 'ग्राम पंचायत निर्देशिका',
+    'gp.subtitle': 'डीबीटी नामांकन और छात्रवृत्ति सहायता के लिए अपनी स्थानीय ग्राम पंचायत खोजें',
+    
+    // Chat
+    'chat.placeholder': 'डीबीटी, छात्रवृत्ति, या खाता सत्यापन के बारे में मुझसे पूछें...',
+    'chat.send': 'भेजें',
+    'chat.title': 'एआई सहायक से पूछें',
     
     // Common
     'common.loading': 'लोड हो रहा है...',

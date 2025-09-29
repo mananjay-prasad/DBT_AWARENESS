@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Search, Phone, Mail, MapPin, School, FileText, Download, GraduationCap } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Schools: React.FC = () => {
+  const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
   const [selectedType, setSelectedType] = useState('');
@@ -138,9 +140,9 @@ const Schools: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Schools Directory</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('schools.title')}</h1>
           <p className="text-xl text-gray-600">
-            Connect with local schools and principals for DBT guidance and scholarship support
+            {t('schools.subtitle')}
           </p>
         </div>
 

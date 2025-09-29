@@ -170,8 +170,6 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
         )}
       </div>
     </header>
-      </div>
-    </header>
     
     <HelpAssistance isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
     </>

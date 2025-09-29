@@ -38,13 +38,21 @@ const Check: React.FC = () => {
 
   const formatAadhaar = (value: string) => {
     const numbers = value.replace(/[^\d]/g, '');
-    const match = numbers.match(/(\d{0,4})(\d{0,4})(\d{0,4})/);
-    return match ? [match[1], match[2], match[3]].filter(Boolean).join(' ') : numbers;
+    if (numbers.length <= 4) {
+      return numbers;
+    } else if (numbers.length <= 8) {
+      return numbers.slice(0, 4) + ' ' + numbers.slice(4);
+    } else {
+      return numbers.slice(0, 4) + ' ' + numbers.slice(4, 8) + ' ' + numbers.slice(8, 12);
+    }
   };
 
   const handleAadhaarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatAadhaar(e.target.value);
-    if (formatted.length <= 14) {
+    const inputValue = e.target.value;
+    const numbersOnly = inputValue.replace(/[^\d]/g, '');
+    
+    if (numbersOnly.length <= 12) {
+      const formatted = formatAadhaar(numbersOnly);
       setAadhaarNumber(formatted);
     }
   };

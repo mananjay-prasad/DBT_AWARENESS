@@ -73,13 +73,13 @@ const Check: React.FC = () => {
           <form onSubmit={handleCheck} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Aadhaar Number *
+                {language === 'en' ? 'Aadhaar Number *' : 'आधार संख्या *'}
               </label>
               <input
                 type="text"
                 value={aadhaarNumber}
                 onChange={handleAadhaarChange}
-                placeholder="XXXX XXXX XXXX"
+                placeholder={language === 'en' ? 'XXXX XXXX XXXX' : 'XXXX XXXX XXXX'}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 required
               />
@@ -88,13 +88,13 @@ const Check: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Account Number *
+                  {language === 'en' ? 'Account Number *' : 'खाता संख्या *'}
                 </label>
                 <input
                   type="text"
                   value={accountNumber}
                   onChange={(e) => setAccountNumber(e.target.value)}
-                  placeholder="Enter account number"
+                  placeholder={language === 'en' ? 'Enter account number' : 'खाता संख्या दर्ज करें'}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   required
                 />
@@ -102,13 +102,13 @@ const Check: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  IFSC Code *
+                  {language === 'en' ? 'IFSC Code *' : 'आईएफएससी कोड *'}
                 </label>
                 <input
                   type="text"
                   value={ifscCode}
                   onChange={(e) => setIfscCode(e.target.value.toUpperCase())}
-                  placeholder="Enter IFSC code"
+                  placeholder={language === 'en' ? 'Enter IFSC code' : 'आईएफएससी कोड दर्ज करें'}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   required
                 />
@@ -125,7 +125,10 @@ const Check: React.FC = () => {
               ) : (
                 <Search className="mr-2" size={20} />
               )}
-              {loading ? 'Checking...' : 'Check Status'}
+              {loading ? 
+                (language === 'en' ? 'Checking...' : 'जांच रहे हैं...') : 
+                (language === 'en' ? 'Check Status' : 'स्थिति जांचें')
+              }
             </button>
           </form>
         </div>
@@ -135,59 +138,82 @@ const Check: React.FC = () => {
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <CreditCard className="text-blue-500 mr-3" size={28} />
-              Account Status
+              {language === 'en' ? 'Account Status' : 'खाता स्थिति'}
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               {/* Account Info */}
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Account Information</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    {language === 'en' ? 'Account Information' : 'खाता जानकारी'}
+                  </h3>
                   <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                    <p className="text-sm"><strong>Bank:</strong> {result.bankName}</p>
-                    <p className="text-sm"><strong>Account Holder:</strong> {result.accountHolder}</p>
-                    <p className="text-sm"><strong>Status:</strong> 
+                    <p className="text-sm">
+                      <strong>{language === 'en' ? 'Bank:' : 'बैंक:'}</strong> {result.bankName}
+                    </p>
+                    <p className="text-sm">
+                      <strong>{language === 'en' ? 'Account Holder:' : 'खाताधारक:'}</strong> {result.accountHolder}
+                    </p>
+                    <p className="text-sm">
+                      <strong>{language === 'en' ? 'Status:' : 'स्थिति:'}</strong> 
                       <span className="text-green-600 ml-1">{result.status}</span>
                     </p>
-                    <p className="text-sm"><strong>Last Updated:</strong> {result.lastUpdated}</p>
+                    <p className="text-sm">
+                      <strong>{language === 'en' ? 'Last Updated:' : 'अंतिम अपडेट:'}</strong> {result.lastUpdated}
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Status Checks */}
               <div className="space-y-4">
-                <h3 className="font-semibold text-gray-900 mb-2">Verification Status</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {language === 'en' ? 'Verification Status' : 'सत्यापन स्थिति'}
+                </h3>
                 
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <span className="text-sm font-medium">Aadhaar Linked</span>
+                    <span className="text-sm font-medium">
+                      {language === 'en' ? 'Aadhaar Linked' : 'आधार लिंक्ड'}
+                    </span>
                     <div className="flex items-center">
                       {result.aadhaarLinked ? (
                         <>
                           <CheckCircle className="text-green-500 mr-1" size={20} />
-                          <span className="text-green-600 text-sm">Verified</span>
+                          <span className="text-green-600 text-sm">
+                            {language === 'en' ? 'Verified' : 'सत्यापित'}
+                          </span>
                         </>
                       ) : (
                         <>
                           <XCircle className="text-red-500 mr-1" size={20} />
-                          <span className="text-red-600 text-sm">Not Linked</span>
+                          <span className="text-red-600 text-sm">
+                            {language === 'en' ? 'Not Linked' : 'लिंक नहीं'}
+                          </span>
                         </>
                       )}
                     </div>
                   </div>
 
                   <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <span className="text-sm font-medium">DBT Enabled</span>
+                    <span className="text-sm font-medium">
+                      {language === 'en' ? 'DBT Enabled' : 'डीबीटी सक्षम'}
+                    </span>
                     <div className="flex items-center">
                       {result.dbtEnabled ? (
                         <>
                           <CheckCircle className="text-green-500 mr-1" size={20} />
-                          <span className="text-green-600 text-sm">Enabled</span>
+                          <span className="text-green-600 text-sm">
+                            {language === 'en' ? 'Enabled' : 'सक्षम'}
+                          </span>
                         </>
                       ) : (
                         <>
                           <XCircle className="text-red-500 mr-1" size={20} />
-                          <span className="text-red-600 text-sm">Not Enabled</span>
+                          <span className="text-red-600 text-sm">
+                            {language === 'en' ? 'Not Enabled' : 'सक्षम नहीं'}
+                          </span>
                         </>
                       )}
                     </div>
@@ -198,24 +224,33 @@ const Check: React.FC = () => {
 
             {/* Recommendations */}
             <div className="border-t pt-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Recommendations</h3>
+              <h3 className="font-semibold text-gray-900 mb-4">
+                {language === 'en' ? 'Recommendations' : 'सिफारिशें'}
+              </h3>
               
               {!result.dbtEnabled ? (
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                   <div className="flex items-start">
                     <AlertTriangle className="text-red-500 mr-3 mt-0.5" size={20} />
                     <div>
-                      <h4 className="font-medium text-red-800 mb-2">DBT Not Enabled</h4>
+                      <h4 className="font-medium text-red-800 mb-2">
+                        {language === 'en' ? 'DBT Not Enabled' : 'डीबीटी सक्षम नहीं'}
+                      </h4>
                       <p className="text-red-700 text-sm mb-3">
-                        Your account is not DBT enabled. You cannot receive scholarship benefits without DBT facility.
+                        {language === 'en' 
+                          ? 'Your account is not DBT enabled. You cannot receive scholarship benefits without DBT facility.'
+                          : 'आपका खाता डीबीटी सक्षम नहीं है। डीबीटी सुविधा के बिना आप छात्रवृत्ति लाभ प्राप्त नहीं कर सकते।'
+                        }
                       </p>
                       <div className="space-y-2 text-sm">
-                        <p className="text-red-700"><strong>Next Steps:</strong></p>
+                        <p className="text-red-700">
+                          <strong>{language === 'en' ? 'Next Steps:' : 'अगले कदम:'}</strong>
+                        </p>
                         <ul className="list-disc list-inside text-red-600 ml-2 space-y-1">
-                          <li>Visit your bank branch immediately</li>
-                          <li>Request DBT enrollment form</li>
-                          <li>Submit with Aadhaar card and passbook</li>
-                          <li>Follow up after 2-3 working days</li>
+                          <li>{language === 'en' ? 'Visit your bank branch immediately' : 'तुरंत अपनी बैंक शाखा में जाएं'}</li>
+                          <li>{language === 'en' ? 'Request DBT enrollment form' : 'डीबीटी नामांकन फॉर्म का अनुरोध करें'}</li>
+                          <li>{language === 'en' ? 'Submit with Aadhaar card and passbook' : 'आधार कार्ड और पासबुक के साथ जमा करें'}</li>
+                          <li>{language === 'en' ? 'Follow up after 2-3 working days' : '2-3 कार्य दिवसों के बाद फॉलो अप करें'}</li>
                         </ul>
                       </div>
                     </div>
@@ -226,10 +261,14 @@ const Check: React.FC = () => {
                   <div className="flex items-start">
                     <CheckCircle className="text-green-500 mr-3 mt-0.5" size={20} />
                     <div>
-                      <h4 className="font-medium text-green-800 mb-2">Account Ready for Scholarships</h4>
+                      <h4 className="font-medium text-green-800 mb-2">
+                        {language === 'en' ? 'Account Ready for Scholarships' : 'छात्रवृत्ति के लिए खाता तैयार'}
+                      </h4>
                       <p className="text-green-700 text-sm">
-                        Your account is properly configured to receive scholarship benefits through DBT. 
-                        You can proceed with scholarship applications.
+                        {language === 'en' 
+                          ? 'Your account is properly configured to receive scholarship benefits through DBT. You can proceed with scholarship applications.'
+                          : 'आपका खाता डीबीटी के माध्यम से छात्रवृत्ति लाभ प्राप्त करने के लिए उचित रूप से कॉन्फ़िगर किया गया है। आप छात्रवृत्ति आवेदन के साथ आगे बढ़ सकते हैं।'
+                        }
                       </p>
                     </div>
                   </div>

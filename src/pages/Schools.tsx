@@ -170,7 +170,9 @@ const Schools: React.FC = () => {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             >
               {districts.map(district => (
-                <option key={district} value={district}>{district === 'All Districts' ? t('gp.district.all') : district}</option>
+                <option key={district} value={district}>
+                  {district === 'All Districts' ? t('gp.district.all') : district}
+                </option>
               ))}
             </select>
             <select
@@ -331,7 +333,7 @@ const Schools: React.FC = () => {
                       <span className="text-xs text-gray-500">{doc.type} • {doc.size}</span>
                       <button className="flex items-center space-x-1 text-orange-600 hover:text-orange-700 text-xs">
                         <Download size={12} />
-                        <span>Download</span>
+                        <span>{t('common.download')}</span>
                       </button>
                     </div>
                   </div>

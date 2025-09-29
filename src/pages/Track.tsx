@@ -122,18 +122,24 @@ const Track: React.FC = () => {
           <form onSubmit={handleTrack} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Application ID / Registration Number *
+                {language === 'en' ? 'Application ID / Registration Number *' : 'आवेदन आईडी / पंजीकरण संख्या *'}
               </label>
               <input
                 type="text"
                 value={applicationId}
                 onChange={(e) => setApplicationId(e.target.value.toUpperCase())}
-                placeholder="Enter your application ID (e.g., PRE2024001, POST2024001)"
+                placeholder={language === 'en' 
+                  ? 'Enter your application ID (e.g., PRE2024001, POST2024001)'
+                  : 'अपनी आवेदन आईडी दर्ज करें (जैसे, PRE2024001, POST2024001)'
+                }
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 required
               />
               <p className="text-sm text-gray-500 mt-1">
-                You can find this ID in your application confirmation email or SMS
+                {language === 'en' 
+                  ? 'You can find this ID in your application confirmation email or SMS'
+                  : 'आप इस आईडी को अपने आवेदन पुष्टिकरण ईमेल या एसएमएस में पा सकते हैं'
+                }
               </p>
             </div>
 
@@ -147,7 +153,10 @@ const Track: React.FC = () => {
               ) : (
                 <Search className="mr-2" size={20} />
               )}
-              {loading ? 'Tracking...' : 'Track Application'}
+              {loading ? 
+                (language === 'en' ? 'Tracking...' : 'ट्रैक कर रहे हैं...') : 
+                (language === 'en' ? 'Track Application' : 'आवेदन ट्रैक करें')
+              }
             </button>
           </form>
         </div>
@@ -158,41 +167,61 @@ const Track: React.FC = () => {
             {/* Application Overview */}
             <div className="bg-white rounded-xl shadow-lg p-8">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Application Status</h2>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {language === 'en' ? 'Application Status' : 'आवेदन स्थिति'}
+                </h2>
                 <div className={`px-4 py-2 rounded-full flex items-center space-x-2 ${getStatusColor(trackingResult.status)}`}>
                   {getStatusIcon(trackingResult.status)}
-                  <span className="font-medium capitalize">{trackingResult.status}</span>
+                  <span className="font-medium capitalize">
+                    {language === 'en' ? trackingResult.status : 
+                      trackingResult.status === 'approved' ? 'स्वीकृत' :
+                      trackingResult.status === 'pending' ? 'लंबित' :
+                      trackingResult.status === 'rejected' ? 'अस्वीकृत' : trackingResult.status
+                    }
+                  </span>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-500">Application ID</p>
+                    <p className="text-sm text-gray-500">
+                      {language === 'en' ? 'Application ID' : 'आवेदन आईडी'}
+                    </p>
                     <p className="font-medium">{trackingResult.applicationId}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Applicant Name</p>
+                    <p className="text-sm text-gray-500">
+                      {language === 'en' ? 'Applicant Name' : 'आवेदक का नाम'}
+                    </p>
                     <p className="font-medium">{trackingResult.applicantName}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Scheme</p>
+                    <p className="text-sm text-gray-500">
+                      {language === 'en' ? 'Scheme' : 'योजना'}
+                    </p>
                     <p className="font-medium">{trackingResult.scheme}</p>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-500">Application Date</p>
+                    <p className="text-sm text-gray-500">
+                      {language === 'en' ? 'Application Date' : 'आवेदन दिनांक'}
+                    </p>
                     <p className="font-medium">{trackingResult.applicationDate}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Last Updated</p>
+                    <p className="text-sm text-gray-500">
+                      {language === 'en' ? 'Last Updated' : 'अंतिम अपडेट'}
+                    </p>
                     <p className="font-medium">{trackingResult.lastUpdate}</p>
                   </div>
                   {trackingResult.amount && (
                     <div>
-                      <p className="text-sm text-gray-500">Scholarship Amount</p>
+                      <p className="text-sm text-gray-500">
+                        {language === 'en' ? 'Scholarship Amount' : 'छात्रवृत्ति राशि'}
+                      </p>
                       <p className="font-medium text-green-600">{trackingResult.amount}</p>
                     </div>
                   )}
@@ -204,9 +233,14 @@ const Track: React.FC = () => {
                   <div className="flex items-center">
                     <CheckCircle className="text-green-500 mr-3" size={20} />
                     <div>
-                      <h4 className="font-medium text-green-800">Amount Disbursed Successfully</h4>
+                      <h4 className="font-medium text-green-800">
+                        {language === 'en' ? 'Amount Disbursed Successfully' : 'राशि सफलतापूर्वक वितरित'}
+                      </h4>
                       <p className="text-green-700 text-sm">
-                        Scholarship amount of {trackingResult.amount} has been transferred to your DBT-enabled account on {trackingResult.disbursementDate}
+                        {language === 'en' 
+                          ? `Scholarship amount of ${trackingResult.amount} has been transferred to your DBT-enabled account on ${trackingResult.disbursementDate}`
+                          : `${trackingResult.amount} की छात्रवृत्ति राशि ${trackingResult.disbursementDate} को आपके डीबीटी-सक्षम खाते में स्थानांतरित कर दी गई है`
+                        }
                       </p>
                     </div>
                   </div>
@@ -218,10 +252,15 @@ const Track: React.FC = () => {
                   <div className="flex items-start">
                     <XCircle className="text-red-500 mr-3 mt-0.5" size={20} />
                     <div>
-                      <h4 className="font-medium text-red-800 mb-1">Application Rejected</h4>
+                      <h4 className="font-medium text-red-800 mb-1">
+                        {language === 'en' ? 'Application Rejected' : 'आवेदन अस्वीकृत'}
+                      </h4>
                       <p className="text-red-700 text-sm">{trackingResult.rejectionReason}</p>
                       <p className="text-red-600 text-sm mt-2">
-                        You can reapply after resolving the issue. Contact support for assistance.
+                        {language === 'en' 
+                          ? 'You can reapply after resolving the issue. Contact support for assistance.'
+                          : 'समस्या का समाधान करने के बाद आप पुनः आवेदन कर सकते हैं। सहायता के लिए सपोर्ट से संपर्क करें।'
+                        }
                       </p>
                     </div>
                   </div>
@@ -231,7 +270,9 @@ const Track: React.FC = () => {
 
             {/* Progress Timeline */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Application Progress</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                {language === 'en' ? 'Application Progress' : 'आवेदन प्रगति'}
+              </h3>
               
               <div className="space-y-4">
                 {trackingResult.steps.map((step: any, index: number) => (
@@ -249,7 +290,13 @@ const Track: React.FC = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
                         <h4 className={`font-medium ${step.completed ? 'text-gray-900' : 'text-gray-500'}`}>
-                          {step.title}
+                          {language === 'en' ? step.title : 
+                            step.title === 'Application Submitted' ? 'आवेदन जमा किया गया' :
+                            step.title === 'Document Verification' ? 'दस्तावेज़ सत्यापन' :
+                            step.title === 'Eligibility Check' ? 'पात्रता जांच' :
+                            step.title === 'Approval' ? 'अनुमोदन' :
+                            step.title === 'Amount Disbursed' ? 'राशि वितरित' : step.title
+                          }
                         </h4>
                         {step.date && (
                           <span className="text-sm text-gray-500">{step.date}</span>
@@ -257,7 +304,9 @@ const Track: React.FC = () => {
                       </div>
                       
                       {!step.completed && index === trackingResult.steps.findIndex((s: any) => !s.completed) && (
-                        <p className="text-sm text-blue-600 mt-1">Currently in progress...</p>
+                        <p className="text-sm text-blue-600 mt-1">
+                          {language === 'en' ? 'Currently in progress...' : 'वर्तमान में प्रगति में...'}
+                        </p>
                       )}
                     </div>
                   </div>

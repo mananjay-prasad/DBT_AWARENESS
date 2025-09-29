@@ -79,6 +79,7 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'guide.benefits.title': 'Benefits of DBT Enabled Account',
     'guide.issues.title': 'Common Issues & Solutions',
     'guide.help.title': 'Need Additional Help?',
+    'guide.difference.question': 'What\'s the Difference?',
     'guide.step1.title': 'Visit Your Bank Branch',
     'guide.step1.desc': 'Go to the branch where your account is held with original Aadhaar card and bank passbook.',
     'guide.step2.title': 'Fill DBT Enrollment Form',
@@ -213,6 +214,10 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'help.useful.links': 'Useful Links',
     'help.video.tutorials': 'Video Tutorials',
     'help.video.desc': 'Watch step-by-step video guides',
+    'help.links.nsp': 'National Scholarship Portal (NSP)',
+    'help.links.aadhaar': 'Aadhaar Official Website',
+    'help.links.dbt': 'DBT Mission Portal',
+    'help.links.ministry': 'Ministry of Social Justice & Empowerment',
     
     // Gram Panchayat
     'gp.search.placeholder': 'Search by name, location, or sarpanch...',
@@ -363,6 +368,7 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'guide.benefits.title': 'डीबीटी सक्षम खाते के लाभ',
     'guide.issues.title': 'सामान्य समस्याएं और समाधान',
     'guide.help.title': 'अतिरिक्त सहायता चाहिए?',
+    'guide.difference.question': 'अंतर क्या है?',
     'guide.step1.title': 'अपनी बैंक शाखा में जाएं',
     'guide.step1.desc': 'मूल आधार कार्ड और बैंक पासबुक के साथ उस शाखा में जाएं जहां आपका खाता है।',
     'guide.step2.title': 'डीबीटी नामांकन फॉर्म भरें',
@@ -571,6 +577,10 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'help.useful.links': 'उपयोगी लिंक',
     'help.video.tutorials': 'वीडियो ट्यूटोरियल',
     'help.video.desc': 'चरण-दर-चरण वीडियो गाइड देखें',
+    'help.links.nsp': 'राष्ट्रीय छात्रवृत्ति पोर्टल (एनएसपी)',
+    'help.links.aadhaar': 'आधार आधिकारिक वेबसाइट',
+    'help.links.dbt': 'डीबीटी मिशन पोर्टल',
+    'help.links.ministry': 'सामाजिक न्याय और अधिकारिता मंत्रालय',
     
     // Gram Panchayat
     'gp.search.placeholder': 'नाम, स्थान या सरपंच द्वारा खोजें...',

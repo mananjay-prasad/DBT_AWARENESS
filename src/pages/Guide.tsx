@@ -31,7 +31,7 @@ const Guide: React.FC = () => {
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <AlertCircle className="text-blue-500 mr-3" size={28} />
-            What's the Difference?
+            {t('guide.difference.question')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

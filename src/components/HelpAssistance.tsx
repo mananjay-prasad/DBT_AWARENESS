@@ -116,16 +116,16 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
             </h4>
             <div className="space-y-2">
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                {t('language') === 'en' ? 'National Scholarship Portal (NSP)' : 'राष्ट्रीय छात्रवृत्ति पोर्टल (एनएसपी)'}
+                {t('help.links.nsp')}
               </a>
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                {t('language') === 'en' ? 'Aadhaar Official Website' : 'आधार आधिकारिक वेबसाइट'}
+                {t('help.links.aadhaar')}
               </a>
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                {t('language') === 'en' ? 'DBT Mission Portal' : 'डीबीटी मिशन पोर्टल'}
+                {t('help.links.dbt')}
               </a>
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                {t('language') === 'en' ? 'Ministry of Social Justice & Empowerment' : 'सामाजिक न्याय और अधिकारिता मंत्रालय'}
+                {t('help.links.ministry')}
               </a>
             </div>
           </div>

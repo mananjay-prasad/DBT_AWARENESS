@@ -3,7 +3,7 @@ import { Search, Clock, CheckCircle, XCircle, AlertCircle, FileText } from 'luci
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Track: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [applicationId, setApplicationId] = useState('');
   const [loading, setLoading] = useState(false);
   const [trackingResult, setTrackingResult] = useState<any>(null);

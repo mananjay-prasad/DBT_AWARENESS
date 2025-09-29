@@ -141,9 +141,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
             }`}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
           </div>
-        </div>
 
         {/* Mobile navigation */}
         {isMenuOpen && (
@@ -170,6 +168,8 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
             </div>
           </div>
         )}
+      </div>
+    </header>
       </div>
     </header>
     

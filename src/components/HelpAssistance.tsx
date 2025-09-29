@@ -18,13 +18,13 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
   const helpSections = [
     {
       id: 'contact',
-      title: 'Contact Support',
+      title: t('help.contact'),
       icon: Phone,
       content: (
         <div className="space-y-4">
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-blue-50'}`}>
             <h4 className={`font-semibold mb-2 ${isDark ? 'text-blue-300' : 'text-blue-800'}`}>
-              24/7 Helpline
+              {t('help.helpline')}
             </h4>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
@@ -37,17 +37,19 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
               </div>
               <div className="flex items-center space-x-2">
                 <Clock size={16} className={isDark ? 'text-orange-400' : 'text-orange-600'} />
-                <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>
+                  {t('language') === 'en' ? 'Mon-Fri: 9:00 AM - 6:00 PM' : 'सोम-शुक्र: सुबह 9:00 - शाम 6:00'}
+                </span>
               </div>
             </div>
           </div>
 
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-green-50'}`}>
             <h4 className={`font-semibold mb-2 ${isDark ? 'text-green-300' : 'text-green-800'}`}>
-              WhatsApp Support
+              {t('help.whatsapp')}
             </h4>
             <p className={`text-sm mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-              Get instant help via WhatsApp
+              {t('help.whatsapp.desc')}
             </p>
             <button className={`px-4 py-2 rounded-lg text-sm font-medium ${
               isDark 
@@ -55,7 +57,7 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
                 : 'bg-green-500 hover:bg-green-600 text-white'
             } transition-colors`}>
               <MessageCircle size={16} className="inline mr-2" />
-              Chat on WhatsApp
+              {t('help.whatsapp.button')}
             </button>
           </div>
         </div>
@@ -63,17 +65,17 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
     },
     {
       id: 'faq',
-      title: 'FAQ',
+      title: t('help.faq'),
       icon: FileText,
       content: (
         <div className="space-y-4">
           <div className={`border rounded-lg ${isDark ? 'border-gray-600' : 'border-gray-200'}`}>
             <details className="p-4">
               <summary className={`font-medium cursor-pointer ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                What is the difference between Aadhaar-linked and DBT-enabled account?
+                {t('help.faq.q1')}
               </summary>
               <p className={`mt-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                An Aadhaar-linked account simply has your Aadhaar number associated with it. A DBT-enabled account is specially configured to receive government benefits directly.
+                {t('help.faq.a1')}
               </p>
             </details>
           </div>
@@ -81,10 +83,10 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
           <div className={`border rounded-lg ${isDark ? 'border-gray-600' : 'border-gray-200'}`}>
             <details className="p-4">
               <summary className={`font-medium cursor-pointer ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                How do I enable DBT on my account?
+                {t('help.faq.q2')}
               </summary>
               <p className={`mt-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                Visit your bank branch with Aadhaar card and bank passbook. Fill the DBT enrollment form and submit it. The bank will activate DBT within 2-3 working days.
+                {t('help.faq.a2')}
               </p>
             </details>
           </div>
@@ -92,10 +94,10 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
           <div className={`border rounded-lg ${isDark ? 'border-gray-600' : 'border-gray-200'}`}>
             <details className="p-4">
               <summary className={`font-medium cursor-pointer ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                Why is my scholarship not being disbursed?
+                {t('help.faq.q3')}
               </summary>
               <p className={`mt-2 text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                Common reasons include: DBT not enabled, account dormant, name mismatch between Aadhaar and bank account, or incomplete application documents.
+                {t('help.faq.a3')}
               </p>
             </details>
           </div>
@@ -104,47 +106,47 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
     },
     {
       id: 'resources',
-      title: 'Resources',
+      title: t('help.resources'),
       icon: ExternalLink,
       content: (
         <div className="space-y-4">
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-50'}`}>
             <h4 className={`font-semibold mb-3 ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-              Useful Links
+              {t('help.useful.links')}
             </h4>
             <div className="space-y-2">
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                National Scholarship Portal (NSP)
+                {t('language') === 'en' ? 'National Scholarship Portal (NSP)' : 'राष्ट्रीय छात्रवृत्ति पोर्टल (एनएसपी)'}
               </a>
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                Aadhaar Official Website
+                {t('language') === 'en' ? 'Aadhaar Official Website' : 'आधार आधिकारिक वेबसाइट'}
               </a>
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                DBT Mission Portal
+                {t('language') === 'en' ? 'DBT Mission Portal' : 'डीबीटी मिशन पोर्टल'}
               </a>
               <a href="#" className={`block text-sm hover:underline ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                Ministry of Social Justice & Empowerment
+                {t('language') === 'en' ? 'Ministry of Social Justice & Empowerment' : 'सामाजिक न्याय और अधिकारिता मंत्रालय'}
               </a>
             </div>
           </div>
 
           <div className={`p-4 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-yellow-50'}`}>
             <h4 className={`font-semibold mb-2 ${isDark ? 'text-yellow-300' : 'text-yellow-800'}`}>
-              Video Tutorials
+              {t('help.video.tutorials')}
             </h4>
             <p className={`text-sm mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-              Watch step-by-step video guides
+              {t('help.video.desc')}
             </p>
             <div className="space-y-2">
               <button className={`block w-full text-left text-sm p-2 rounded ${
                 isDark ? 'bg-gray-600 hover:bg-gray-500 text-gray-200' : 'bg-white hover:bg-gray-50 text-gray-700'
               } transition-colors`}>
-                How to Enable DBT (Hindi)
+                {t('language') === 'en' ? 'How to Enable DBT (Hindi)' : 'डीबीटी कैसे सक्षम करें (हिंदी)'}
               </button>
               <button className={`block w-full text-left text-sm p-2 rounded ${
                 isDark ? 'bg-gray-600 hover:bg-gray-500 text-gray-200' : 'bg-white hover:bg-gray-50 text-gray-700'
               } transition-colors`}>
-                Scholarship Application Process
+                {t('language') === 'en' ? 'Scholarship Application Process' : 'छात्रवृत्ति आवेदन प्रक्रिया'}
               </button>
             </div>
           </div>
@@ -164,7 +166,7 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
           {/* Header */}
           <div className={`flex items-center justify-between p-6 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
             <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              Help & Assistance
+              {t('help.title')}
             </h2>
             <button
               onClick={onClose}
@@ -176,36 +178,38 @@ const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
             {/* Sidebar */}
-            <div className={`w-1/3 border-r ${isDark ? 'border-gray-700 bg-gray-750' : 'border-gray-200 bg-gray-50'}`}>
+            <div className={`w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r ${isDark ? 'border-gray-700 bg-gray-750' : 'border-gray-200 bg-gray-50'}`}>
               <div className="p-4">
-                {helpSections.map((section) => {
-                  const Icon = section.icon;
-                  return (
-                    <button
-                      key={section.id}
-                      onClick={() => setActiveTab(section.id)}
-                      className={`w-full flex items-center space-x-3 p-3 rounded-lg text-left transition-colors mb-2 ${
-                        activeTab === section.id
-                          ? isDark
-                            ? 'bg-orange-600 text-white'
-                            : 'bg-orange-500 text-white'
-                          : isDark
-                            ? 'hover:bg-gray-700 text-gray-300'
-                            : 'hover:bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      <Icon size={20} />
-                      <span className="font-medium">{section.title}</span>
-                    </button>
-                  );
-                })}
+                <div className="flex lg:flex-col space-x-2 lg:space-x-0 lg:space-y-2 overflow-x-auto lg:overflow-x-visible">
+                  {helpSections.map((section) => {
+                    const Icon = section.icon;
+                    return (
+                      <button
+                        key={section.id}
+                        onClick={() => setActiveTab(section.id)}
+                        className={`flex items-center space-x-3 p-3 rounded-lg text-left transition-colors whitespace-nowrap lg:w-full ${
+                          activeTab === section.id
+                            ? isDark
+                              ? 'bg-orange-600 text-white'
+                              : 'bg-orange-500 text-white'
+                            : isDark
+                              ? 'hover:bg-gray-700 text-gray-300'
+                              : 'hover:bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        <Icon size={20} />
+                        <span className="font-medium">{section.title}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
             {/* Content */}
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-4 lg:p-6">
               {helpSections.find(section => section.id === activeTab)?.content}
             </div>
           </div>

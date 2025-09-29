@@ -115,22 +115,12 @@ const Home: React.FC = () => {
                 </h3>
               </div>
               <ul className="space-y-3 text-gray-700 text-sm sm:text-base">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Basic connection of Aadhaar number with bank account</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Used for KYC verification</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>May not receive government benefits directly</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Standard banking services available</span>
-                </li>
+                {(t('home.aadhaar.features') as string[]).map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -143,22 +133,12 @@ const Home: React.FC = () => {
                 </h3>
               </div>
               <ul className="space-y-3 text-gray-700 text-sm sm:text-base">
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Specially configured for government benefit transfers</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Direct scholarship disbursement capability</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span><strong>Required for SC scholarships</strong></span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span>Faster and more secure benefit delivery</span>
-                </li>
+                {(t('home.dbt.features') as string[]).map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>{index === 2 ? <strong>{feature}</strong> : feature}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -167,8 +147,10 @@ const Home: React.FC = () => {
             <div className="border border-yellow-200 rounded-lg p-4 sm:p-6 bg-yellow-50 mx-4 sm:mx-0 sm:inline-block">
               <Shield className="text-yellow-600 mx-auto mb-3" size={32} />
               <p className="font-semibold text-yellow-800 text-sm sm:text-base">
-                Important: For SC Pre-Matric and Post-Matric scholarships, 
-                you MUST have a DBT-enabled Aadhaar-seeded bank account.
+                {t('language') === 'en' 
+                  ? 'Important: For SC Pre-Matric and Post-Matric scholarships, you MUST have a DBT-enabled Aadhaar-seeded bank account.'
+                  : 'महत्वपूर्ण: एससी प्री-मैट्रिक और पोस्ट-मैट्रिक छात्रवृत्ति के लिए, आपके पास डीबीटी-सक्षम आधार-सीडेड बैंक खाता होना चाहिए।'
+                }
               </p>
             </div>
           </div>
@@ -180,24 +162,25 @@ const Home: React.FC = () => {
             {t('home.video.title')}
           </h2>
           <div className="max-w-4xl mx-auto">
-            <div className="relative bg-gray-200 rounded-lg overflow-hidden shadow-lg mx-4 sm:mx-0" style={{ paddingBottom: '56.25%' }}>
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
-                <div className="text-center text-white">
-                  <Play size={48} className="mx-auto mb-4 opacity-80 sm:w-16 sm:h-16" />
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{t('home.video.title')}</h3>
-                  <p className="text-gray-300 text-sm sm:text-base">{t('home.video.desc')}</p>
-                  <p className="text-sm text-gray-400 mt-4">
-                    Video will be embedded here in production
-                  </p>
-                </div>
-              </div>
+            <div className="relative rounded-lg overflow-hidden shadow-lg mx-4 sm:mx-0" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/zccXPs4ahcw"
+                title={t('home.video.title') as string}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </div>
+            <p className="text-center text-gray-600 mt-4 text-sm sm:text-base">
+              {t('home.video.desc')}
+            </p>
           </div>
         </section>
 
         {/* Quick Stats */}
         <section className="mb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 rounded-lg shadow-lg bg-white">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="text-orange-600" size={32} />
@@ -205,14 +188,14 @@ const Home: React.FC = () => {
               <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">10L+</h3>
               <p className="text-gray-600 text-sm sm:text-base">{t('home.stats.students')}</p>
             </div>
-            <div className="text-center p-6 rounded-lg shadow-lg bg-white sm:col-span-2 lg:col-span-1">
+            <div className="text-center p-6 rounded-lg shadow-lg bg-white">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CreditCard className="text-green-600" size={32} />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">₹500Cr+</h3>
               <p className="text-gray-600 text-sm sm:text-base">{t('home.stats.disbursed')}</p>
             </div>
-            <div className="text-center p-6 rounded-lg shadow-lg bg-white sm:col-start-2 lg:col-start-auto">
+            <div className="text-center p-6 rounded-lg shadow-lg bg-white">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="text-blue-600" size={32} />
               </div>

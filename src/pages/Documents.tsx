@@ -10,144 +10,144 @@ const Documents: React.FC = () => {
   const documents = [
     {
       id: 1,
-      title: "DBT Enrollment Form",
-      description: "Official form for enabling Direct Beneficiary Transfer on your bank account",
+      title: t('language') === 'en' ? "DBT Enrollment Form" : "डीबीटी नामांकन फॉर्म",
+      description: t('language') === 'en' ? "Official form for enabling Direct Beneficiary Transfer on your bank account" : "आपके बैंक खाते पर प्रत्यक्ष लाभार्थी स्थानांतरण सक्षम करने के लिए आधिकारिक फॉर्म",
       category: "Forms",
       type: "PDF",
       size: "0.8 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 15420,
       isNew: false,
       isImportant: true
     },
     {
       id: 2,
-      title: "Aadhaar vs DBT Complete Guide",
-      description: "Comprehensive guide explaining differences and procedures",
+      title: t('language') === 'en' ? "Aadhaar vs DBT Complete Guide" : "आधार बनाम डीबीटी पूर्ण गाइड",
+      description: t('language') === 'en' ? "Comprehensive guide explaining differences and procedures" : "अंतर और प्रक्रियाओं को समझाने वाली व्यापक गाइड",
       category: "Guides",
       type: "PDF",
       size: "3.2 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 8950,
       isNew: true,
       isImportant: true
     },
     {
       id: 3,
-      title: "Pre-Matric Scholarship Application Form",
-      description: "Application form for SC Pre-Matric Scholarship Scheme",
+      title: t('language') === 'en' ? "Pre-Matric Scholarship Application Form" : "प्री-मैट्रिक छात्रवृत्ति आवेदन फॉर्म",
+      description: t('language') === 'en' ? "Application form for SC Pre-Matric Scholarship Scheme" : "एससी प्री-मैट्रिक छात्रवृत्ति योजना के लिए आवेदन फॉर्म",
       category: "Scholarship Forms",
       type: "PDF",
       size: "1.1 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 12300,
       isNew: false,
       isImportant: true
     },
     {
       id: 4,
-      title: "Post-Matric Scholarship Application Form",
-      description: "Application form for SC Post-Matric Scholarship Scheme",
+      title: t('language') === 'en' ? "Post-Matric Scholarship Application Form" : "पोस्ट-मैट्रिक छात्रवृत्ति आवेदन फॉर्म",
+      description: t('language') === 'en' ? "Application form for SC Post-Matric Scholarship Scheme" : "एससी पोस्ट-मैट्रिक छात्रवृत्ति योजना के लिए आवेदन फॉर्म",
       category: "Scholarship Forms",
       type: "PDF",
       size: "1.3 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 9870,
       isNew: false,
       isImportant: true
     },
     {
       id: 5,
-      title: "Bank List Supporting DBT",
-      description: "Complete list of banks that support Direct Beneficiary Transfer",
+      title: t('language') === 'en' ? "Bank List Supporting DBT" : "डीबीटी समर्थित बैंकों की सूची",
+      description: t('language') === 'en' ? "Complete list of banks that support Direct Beneficiary Transfer" : "प्रत्यक्ष लाभार्थी स्थानांतरण का समर्थन करने वाले बैंकों की पूरी सूची",
       category: "Reference",
       type: "PDF",
       size: "0.6 MB",
-      language: "English",
+      language: t('language') === 'en' ? "English" : "अंग्रेजी",
       downloads: 5640,
       isNew: false,
       isImportant: false
     },
     {
       id: 6,
-      title: "Income Certificate Format",
-      description: "Standard format for income certificate required for scholarships",
+      title: t('language') === 'en' ? "Income Certificate Format" : "आय प्रमाण पत्र प्रारूप",
+      description: t('language') === 'en' ? "Standard format for income certificate required for scholarships" : "छात्रवृत्ति के लिए आवश्यक आय प्रमाण पत्र का मानक प्रारूप",
       category: "Certificates",
       type: "DOC",
       size: "0.3 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 7890,
       isNew: false,
       isImportant: false
     },
     {
       id: 7,
-      title: "Caste Certificate Format",
-      description: "Standard format for caste certificate for SC students",
+      title: t('language') === 'en' ? "Caste Certificate Format" : "जाति प्रमाण पत्र प्रारूप",
+      description: t('language') === 'en' ? "Standard format for caste certificate for SC students" : "एससी छात्रों के लिए जाति प्रमाण पत्र का मानक प्रारूप",
       category: "Certificates",
       type: "DOC",
       size: "0.3 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 6540,
       isNew: false,
       isImportant: false
     },
     {
       id: 8,
-      title: "DBT Troubleshooting Manual",
-      description: "Solutions for common issues in DBT enrollment and activation",
+      title: t('language') === 'en' ? "DBT Troubleshooting Manual" : "डीबीटी समस्या निवारण मैनुअल",
+      description: t('language') === 'en' ? "Solutions for common issues in DBT enrollment and activation" : "डीबीटी नामांकन और सक्रियकरण में सामान्य समस्याओं के समाधान",
       category: "Guides",
       type: "PDF",
       size: "2.1 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 4320,
       isNew: true,
       isImportant: false
     },
     {
       id: 9,
-      title: "Scholarship Scheme Guidelines 2024",
-      description: "Updated guidelines for Pre-Matric and Post-Matric scholarship schemes",
+      title: t('language') === 'en' ? "Scholarship Scheme Guidelines 2024" : "छात्रवृत्ति योजना दिशानिर्देश 2024",
+      description: t('language') === 'en' ? "Updated guidelines for Pre-Matric and Post-Matric scholarship schemes" : "प्री-मैट्रिक और पोस्ट-मैट्रिक छात्रवृत्ति योजनाओं के लिए अद्यतन दिशानिर्देश",
       category: "Guidelines",
       type: "PDF",
       size: "4.5 MB",
-      language: "English",
+      language: t('language') === 'en' ? "English" : "अंग्रेजी",
       downloads: 11200,
       isNew: true,
       isImportant: true
     },
     {
       id: 10,
-      title: "Student Information Brochure",
-      description: "Quick reference brochure for students about DBT and scholarships",
+      title: t('language') === 'en' ? "Student Information Brochure" : "छात्र सूचना ब्रोशर",
+      description: t('language') === 'en' ? "Quick reference brochure for students about DBT and scholarships" : "डीबीटी और छात्रवृत्ति के बारे में छात्रों के लिए त्वरित संदर्भ ब्रोशर",
       category: "Brochures",
       type: "PDF",
       size: "1.8 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 3450,
       isNew: false,
       isImportant: false
     },
     {
       id: 11,
-      title: "Parent Awareness Poster",
-      description: "Educational poster for parents about importance of DBT",
+      title: t('language') === 'en' ? "Parent Awareness Poster" : "अभिभावक जागरूकता पोस्टर",
+      description: t('language') === 'en' ? "Educational poster for parents about importance of DBT" : "डीबीटी के महत्व के बारे में माता-पिता के लिए शैक्षिक पोस्टर",
       category: "Posters",
       type: "PDF",
       size: "2.3 MB",
-      language: "Hindi",
+      language: t('language') === 'en' ? "Hindi" : "हिंदी",
       downloads: 2180,
       isNew: false,
       isImportant: false
     },
     {
       id: 12,
-      title: "Frequently Asked Questions",
-      description: "Common questions and answers about DBT and scholarships",
+      title: t('language') === 'en' ? "Frequently Asked Questions" : "अक्सर पूछे जाने वाले प्रश्न",
+      description: t('language') === 'en' ? "Common questions and answers about DBT and scholarships" : "डीबीटी और छात्रवृत्ति के बारे में सामान्य प्रश्न और उत्तर",
       category: "FAQ",
       type: "PDF",
       size: "1.4 MB",
-      language: "English/Hindi",
+      language: t('language') === 'en' ? "English/Hindi" : "अंग्रेजी/हिंदी",
       downloads: 8760,
       isNew: false,
       isImportant: false
@@ -155,16 +155,16 @@ const Documents: React.FC = () => {
   ];
 
   const categories = [
-    "All Categories",
-    "Forms",
-    "Guides", 
-    "Scholarship Forms",
-    "Reference",
-    "Certificates",
-    "Guidelines",
-    "Brochures",
-    "Posters",
-    "FAQ"
+    t('language') === 'en' ? "All Categories" : "सभी श्रेणियां",
+    t('documents.categories.Forms'),
+    t('documents.categories.Guides'),
+    t('documents.categories.Scholarship Forms'),
+    t('documents.categories.Reference'),
+    t('documents.categories.Certificates'),
+    t('documents.categories.Guidelines'),
+    t('documents.categories.Brochures'),
+    t('documents.categories.Posters'),
+    t('documents.categories.FAQ')
   ];
 
   const filteredDocuments = documents.filter(doc => {
@@ -332,24 +332,24 @@ const Documents: React.FC = () => {
                       
                       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getCategoryColor(doc.category)}`}>
-                          {doc.category}
+                          {t(`documents.categories.${doc.category}`)}
                         </span>
                         <span>{doc.type} • {doc.size}</span>
                         <span>{doc.language}</span>
-                        <span>{doc.downloads.toLocaleString()} downloads</span>
+                  {t(`documents.categories.${doc.category}`)}
                       </div>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 w-full lg:w-auto lg:ml-4">
                     <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
-                      <Eye size={16} />
+                  <span className="font-medium">{t('documents.type')}</span> {doc.type}
                     </button>
                     <button className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors flex items-center flex-1 lg:flex-none justify-center">
-                      <Download size={16} className="mr-2" />
+                  <span className="font-medium">{t('documents.size')}</span> {doc.size}
                       {t('common.download')}
                     </button>
-                  </div>
+                  <span className="font-medium">{t('documents.language')}</span> {doc.language}
                 </div>
               </div>
             ))}
@@ -371,10 +371,10 @@ const Documents: React.FC = () => {
             <div>
               <h4 className="font-semibold text-blue-800 mb-2">{t('documents.help.support')}</h4>
               <ul className="space-y-1 text-blue-700 text-sm">
-                <li>• सभी दस्तावेज़ अंग्रेजी और हिंदी में उपलब्ध हैं</li>
-                <li>• आपकी सुविधा के लिए फॉर्म भरने योग्य पीडीएफ हैं</li>
-                <li>• मोबाइल डेटा पर डाउनलोड करने से पहले फ़ाइल का आकार जांचें</li>
-                <li>• दस्तावेज़ों को सादे A4 पेपर पर प्रिंट करें</li>
+                <li>• {t('language') === 'en' ? 'All documents are available in English and Hindi' : 'सभी दस्तावेज़ अंग्रेजी और हिंदी में उपलब्ध हैं'}</li>
+                <li>• {t('language') === 'en' ? 'Forms are fillable PDFs for your convenience' : 'आपकी सुविधा के लिए फॉर्म भरने योग्य पीडीएफ हैं'}</li>
+                <li>• {t('language') === 'en' ? 'Check file size before downloading on mobile data' : 'मोबाइल डेटा पर डाउनलोड करने से पहले फ़ाइल का आकार जांचें'}</li>
+                <li>• {t('language') === 'en' ? 'Print documents on plain A4 paper' : 'दस्तावेज़ों को सादे A4 पेपर पर प्रिंट करें'}</li>
               </ul>
             </div>
             <div>
@@ -383,8 +383,8 @@ const Documents: React.FC = () => {
                 {t('documents.help.technical.desc')}
               </p>
               <div className="space-y-1 text-sm">
-                <p className="text-blue-800">📞 हेल्पलाइन: 1800-XXX-XXXX</p>
-                <p className="text-blue-800">✉️ Email: documents@dbtportal.gov.in</p>
+                <p className="text-blue-800">📞 {t('language') === 'en' ? 'Helpline: 1800-XXX-XXXX' : 'हेल्पलाइन: 1800-XXX-XXXX'}</p>
+                <p className="text-blue-800">✉️ {t('language') === 'en' ? 'Email: documents@dbtportal.gov.in' : 'ईमेल: documents@dbtportal.gov.in'}</p>
               </div>
             </div>
           </div>

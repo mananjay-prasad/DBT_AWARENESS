@@ -37,6 +37,18 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'home.stats.students': 'Students Benefited',
     'home.stats.disbursed': 'Disbursed via DBT',
     'home.stats.secure': 'Secure Transfers',
+    'home.aadhaar.features': [
+      'Basic connection of Aadhaar number with bank account',
+      'Used for KYC verification',
+      'May not receive government benefits directly',
+      'Standard banking services available'
+    ],
+    'home.dbt.features': [
+      'Specially configured for government benefit transfers',
+      'Direct scholarship disbursement capability',
+      'Required for SC scholarships',
+      'Faster and more secure benefit delivery'
+    ],
     
     // Services
     'services.title': 'Our Services',
@@ -185,6 +197,18 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'home.stats.students': 'लाभान्वित छात्र',
     'home.stats.disbursed': 'डीबीटी के माध्यम से वितरित',
     'home.stats.secure': 'सुरक्षित स्थानांतरण',
+    'home.aadhaar.features': [
+      'बैंक खाते के साथ आधार संख्या का बुनियादी कनेक्शन',
+      'केवाईसी सत्यापन के लिए उपयोग',
+      'सीधे सरकारी लाभ प्राप्त नहीं हो सकते',
+      'मानक बैंकिंग सेवाएं उपलब्ध'
+    ],
+    'home.dbt.features': [
+      'सरकारी लाभ स्थानांतरण के लिए विशेष रूप से कॉन्फ़िगर किया गया',
+      'प्रत्यक्ष छात्रवृत्ति वितरण क्षमता',
+      'एससी छात्रवृत्ति के लिए आवश्यक',
+      'तेज़ और अधिक सुरक्षित लाभ वितरण'
+    ],
     
     // Services
     'services.title': 'हमारी सेवाएं',
@@ -295,6 +319,50 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
       'Posters': 'पोस्टर',
       'FAQ': 'अक्सर पूछे जाने वाले प्रश्न'
     },
+    'documents.type': 'प्रकार:',
+    'documents.size': 'आकार:',
+    'documents.language': 'भाषा:',
+    
+    // Help & Assistance
+    'help.title': 'सहायता और सहायता',
+    'help.contact': 'संपर्क सहायता',
+    'help.faq': 'अक्सर पूछे जाने वाले प्रश्न',
+    'help.resources': 'संसाधन',
+    'help.helpline': '24/7 हेल्पलाइन',
+    'help.whatsapp': 'व्हाट्सएप सहायता',
+    'help.whatsapp.desc': 'व्हाट्सएप के माध्यम से तुरंत सहायता प्राप्त करें',
+    'help.whatsapp.button': 'व्हाट्सएप पर चैट करें',
+    'help.useful.links': 'उपयोगी लिंक',
+    'help.video.tutorials': 'वीडियो ट्यूटोरियल',
+    'help.video.desc': 'चरण-दर-चरण वीडियो गाइड देखें',
+    'help.faq.q1': 'आधार-लिंक्ड और डीबीटी-सक्षम खाते के बीच क्या अंतर है?',
+    'help.faq.a1': 'आधार-लिंक्ड खाते में केवल आपका आधार नंबर जुड़ा होता है। डीबीटी-सक्षम खाता सरकारी लाभ सीधे प्राप्त करने के लिए विशेष रूप से कॉन्फ़िगर किया गया है।',
+    'help.faq.q2': 'मैं अपने खाते पर डीबीटी कैसे सक्षम करूं?',
+    'help.faq.a2': 'आधार कार्ड और बैंक पासबुक के साथ अपनी बैंक शाखा में जाएं। डीबीटी नामांकन फॉर्म भरें और जमा करें। बैंक 2-3 कार्य दिवसों के भीतर डीबीटी सक्रिय कर देगा।',
+    'help.faq.q3': 'मेरी छात्रवृत्ति का वितरण क्यों नहीं हो रहा?',
+    'help.faq.a3': 'सामान्य कारणों में शामिल हैं: डीबीटी सक्षम नहीं, खाता निष्क्रिय, आधार और बैंक खाते के बीच नाम मेल नहीं खाता, या अधूरे आवेदन दस्तावेज।',
+    'documents.type': 'Type:',
+    'documents.size': 'Size:',
+    'documents.language': 'Language:',
+    
+    // Help & Assistance
+    'help.title': 'Help & Assistance',
+    'help.contact': 'Contact Support',
+    'help.faq': 'FAQ',
+    'help.resources': 'Resources',
+    'help.helpline': '24/7 Helpline',
+    'help.whatsapp': 'WhatsApp Support',
+    'help.whatsapp.desc': 'Get instant help via WhatsApp',
+    'help.whatsapp.button': 'Chat on WhatsApp',
+    'help.useful.links': 'Useful Links',
+    'help.video.tutorials': 'Video Tutorials',
+    'help.video.desc': 'Watch step-by-step video guides',
+    'help.faq.q1': 'What is the difference between Aadhaar-linked and DBT-enabled account?',
+    'help.faq.a1': 'An Aadhaar-linked account simply has your Aadhaar number associated with it. A DBT-enabled account is specially configured to receive government benefits directly.',
+    'help.faq.q2': 'How do I enable DBT on my account?',
+    'help.faq.a2': 'Visit your bank branch with Aadhaar card and bank passbook. Fill the DBT enrollment form and submit it. The bank will activate DBT within 2-3 working days.',
+    'help.faq.q3': 'Why is my scholarship not being disbursed?',
+    'help.faq.a3': 'Common reasons include: DBT not enabled, account dormant, name mismatch between Aadhaar and bank account, or incomplete application documents.',
     
     // Schools
     'schools.title': 'स्कूल निर्देशिका',

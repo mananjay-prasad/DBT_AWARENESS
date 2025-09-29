@@ -112,6 +112,13 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
       'Valid KYC Documents',
       'Updated Address Proof'
     ],
+    'guide.documents.essential.title': 'Essential Documents:',
+    'guide.documents.additional.title': 'Additional Requirements:',
+    'guide.issues.solution': 'Solution:',
+    'guide.help.call': 'Call Helpline',
+    'guide.help.visit': 'Visit Local Offices',
+    'guide.help.office.desc': 'Gram Panchayat or School Office',
+    'guide.help.directory': 'Find locations in our directory',
     'guide.benefits.faster': 'Faster Transfer',
     'guide.benefits.faster.desc': 'Direct transfer eliminates processing delays',
     'guide.benefits.secure': '100% Secure',
@@ -125,6 +132,15 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'guide.issues.mismatch': 'Issue: Name mismatch between Aadhaar and bank account',
     'guide.issues.mismatch.solution': 'Solution: Update name in either Aadhaar or bank account to ensure exact match.',
     
+    // Important Notes
+    'common.important.notes': 'Important Notes',
+    'common.important.note.sc': 'Important: For SC Pre-Matric and Post-Matric scholarships, you MUST have a DBT-enabled Aadhaar-seeded bank account.',
+    
+    // Track page
+    'track.help.title': 'Need Help with Tracking?',
+    'track.help.id.not.working': 'Application ID Not Working?',
+    'track.help.delayed': 'Application Delayed?',
+    
     // Check
     'check.title': 'Check Account Status',
     'check.subtitle': 'Verify if your bank account is DBT enabled and Aadhaar linked',
@@ -136,6 +152,10 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     // Documents
     'documents.title': 'Document Library',
     'documents.subtitle': 'Download important documents, forms, and guidance materials for DBT and scholarships',
+    'documents.help.title': 'Need help with documents?',
+    'documents.help.support': 'Document Support',
+    'documents.help.technical': 'Technical Issues?',
+    'documents.help.technical.desc': 'Having trouble downloading or opening documents?',
     
     // Schools
     'schools.title': 'Schools Directory',
@@ -272,6 +292,13 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
       'वैध केवाईसी दस्तावेज',
       'अपडेटेड पता प्रमाण'
     ],
+    'guide.documents.essential.title': 'आवश्यक दस्तावेज:',
+    'guide.documents.additional.title': 'अतिरिक्त आवश्यकताएं:',
+    'guide.issues.solution': 'समाधान:',
+    'guide.help.call': 'हेल्पलाइन कॉल करें',
+    'guide.help.visit': 'स्थानीय कार्यालयों में जाएं',
+    'guide.help.office.desc': 'ग्राम पंचायत या स्कूल कार्यालय',
+    'guide.help.directory': 'हमारी निर्देशिका में स्थान खोजें',
     'guide.benefits.faster': 'तेज़ स्थानांतरण',
     'guide.benefits.faster.desc': 'प्रत्यक्ष स्थानांतरण प्रसंस्करण देरी को समाप्त करता है',
     'guide.benefits.secure': '100% सुरक्षित',
@@ -285,6 +312,15 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'guide.issues.mismatch': 'समस्या: आधार और बैंक खाते के बीच नाम मेल नहीं खाता',
     'guide.issues.mismatch.solution': 'समाधान: सटीक मिलान सुनिश्चित करने के लिए आधार या बैंक खाते में नाम अपडेट करें।',
     
+    // Important Notes
+    'common.important.notes': 'महत्वपूर्ण नोट्स',
+    'common.important.note.sc': 'महत्वपूर्ण: एससी प्री-मैट्रिक और पोस्ट-मैट्रिक छात्रवृत्ति के लिए, आपके पास डीबीटी-सक्षम आधार-सीडेड बैंक खाता होना चाहिए।',
+    
+    // Track page
+    'track.help.title': 'ट्रैकिंग में सहायता चाहिए?',
+    'track.help.id.not.working': 'एप्लिकेशन आईडी काम नहीं कर रहा?',
+    'track.help.delayed': 'आवेदन में देरी?',
+    
     // Check
     'check.title': 'खाता स्थिति जांचें',
     'check.subtitle': 'सत्यापित करें कि आपका बैंक खाता डीबीटी सक्षम और आधार लिंक्ड है',
@@ -296,6 +332,10 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     // Documents
     'documents.title': 'दस्तावेज़ लाइब्रेरी',
     'documents.subtitle': 'डीबीटी और छात्रवृत्ति के लिए महत्वपूर्ण दस्तावेज़, फॉर्म और मार्गदर्शन सामग्री डाउनलोड करें',
+    'documents.help.title': 'दस्तावेज़ों के साथ सहायता चाहिए?',
+    'documents.help.support': 'दस्तावेज़ सहायता',
+    'documents.help.technical': 'तकनीकी समस्याएं?',
+    'documents.help.technical.desc': 'दस्तावेज़ डाउनलोड करने या खोलने में समस्या हो रही है?',
     'documents.search': 'दस्तावेज़ खोजें...',
     'documents.filter': 'सभी श्रेणियां',
     'documents.showing': 'दिखाए जा रहे हैं',

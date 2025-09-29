@@ -215,11 +215,11 @@ const Documents: React.FC = () => {
                       
                       <div className="space-y-2 text-xs text-gray-500 mb-4">
                         <div className="flex justify-between">
-                          <span>{t('documents.type.label')} {doc.type}</span>
-                          <span>{t('documents.size.label')} {doc.size}</span>
+                          <span>{language === 'en' ? 'Type:' : 'प्रकार:'} {doc.type}</span>
+                          <span>{language === 'en' ? 'Size:' : 'आकार:'} {doc.size}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>{t('documents.language.label')} {getLanguageDisplay(doc.language)}</span>
+                          <span>{language === 'en' ? 'Language:' : 'भाषा:'} {getLanguageDisplay(doc.language)}</span>
                           <span>{doc.downloads.toLocaleString()} {language === 'en' ? 'downloads' : 'डाउनलोड'}</span>
                         </div>
                       </div>
@@ -250,9 +250,9 @@ const Documents: React.FC = () => {
                           <p className="text-gray-600 text-sm mb-2">{doc.description}</p>
                           
                           <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                            <span>{t('documents.type.label')} {doc.type}</span>
-                            <span>{t('documents.size.label')} {doc.size}</span>
-                            <span>{t('documents.language.label')} {getLanguageDisplay(doc.language)}</span>
+                            <span>{language === 'en' ? 'Type:' : 'प्रकार:'} {doc.type}</span>
+                            <span>{language === 'en' ? 'Size:' : 'आकार:'} {doc.size}</span>
+                            <span>{language === 'en' ? 'Language:' : 'भाषा:'} {getLanguageDisplay(doc.language)}</span>
                             <span>{doc.downloads.toLocaleString()} {language === 'en' ? 'downloads' : 'डाउनलोड'}</span>
                           </div>
                         </div>

@@ -147,10 +147,7 @@ const Home: React.FC = () => {
             <div className="border border-yellow-200 rounded-lg p-4 sm:p-6 bg-yellow-50 mx-4 sm:mx-0 sm:inline-block">
               <Shield className="text-yellow-600 mx-auto mb-3" size={32} />
               <p className="font-semibold text-yellow-800 text-sm sm:text-base">
-                {t('language') === 'en' 
-                  ? 'Important: For SC Pre-Matric and Post-Matric scholarships, you MUST have a DBT-enabled Aadhaar-seeded bank account.'
-                  : 'महत्वपूर्ण: एससी प्री-मैट्रिक और पोस्ट-मैट्रिक छात्रवृत्ति के लिए, आपके पास डीबीटी-सक्षम आधार-सीडेड बैंक खाता होना चाहिए।'
-                }
+                {t('common.important.note.sc')}
               </p>
             </div>
           </div>
@@ -165,7 +162,7 @@ const Home: React.FC = () => {
             <div className="relative rounded-lg overflow-hidden shadow-lg mx-4 sm:mx-0" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/zccXPs4ahcw"
+                src="https://www.youtube.com/embed/zccXPs4ahcw?si=otjspFZDoam792zG"
                 title={t('home.video.title') as string}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

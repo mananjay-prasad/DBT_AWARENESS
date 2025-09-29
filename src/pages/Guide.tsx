@@ -132,7 +132,7 @@ const Guide: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">आवश्यक दस्तावेज:</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">{t('guide.documents.essential.title')}</h3>
               <ul className="space-y-2 text-gray-700">
                 {(t('guide.documents.essential') as string[]).map((doc, index) => (
                   <li key={index} className="flex items-center">
@@ -144,7 +144,7 @@ const Guide: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">अतिरिक्त आवश्यकताएं:</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">{t('guide.documents.additional.title')}</h3>
               <ul className="space-y-2 text-gray-700">
                 {(t('guide.documents.additional') as string[]).map((doc, index) => (
                   <li key={index} className="flex items-center">
@@ -193,21 +193,21 @@ const Guide: React.FC = () => {
             <div className="bg-white rounded-lg p-4">
               <h3 className="font-semibold text-gray-900 mb-2">{t('guide.issues.mobile')}</h3>
               <p className="text-gray-700 text-sm md:text-base">
-                <strong>समाधान:</strong> {t('guide.issues.mobile.solution')}
+                <strong>{t('guide.issues.solution')}</strong> {t('guide.issues.mobile.solution')}
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-4">
               <h3 className="font-semibold text-gray-900 mb-2">{t('guide.issues.dormant')}</h3>
               <p className="text-gray-700 text-sm md:text-base">
-                <strong>समाधान:</strong> {t('guide.issues.dormant.solution')}
+                <strong>{t('guide.issues.solution')}</strong> {t('guide.issues.dormant.solution')}
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-4">
               <h3 className="font-semibold text-gray-900 mb-2">{t('guide.issues.mismatch')}</h3>
               <p className="text-gray-700 text-sm md:text-base">
-                <strong>समाधान:</strong> {t('guide.issues.mismatch.solution')}
+                <strong>{t('guide.issues.solution')}</strong> {t('guide.issues.mismatch.solution')}
               </p>
             </div>
           </div>
@@ -221,18 +221,20 @@ const Guide: React.FC = () => {
             <div className="flex items-start space-x-3">
               <Phone className="text-green-500 mt-1" size={20} />
               <div>
-                <h3 className="font-semibold text-gray-900">हेल्पलाइन कॉल करें</h3>
+                <h3 className="font-semibold text-gray-900">{t('guide.help.call')}</h3>
                 <p className="text-gray-700">1800-XXX-XXXX (Toll Free)</p>
-                <p className="text-gray-500 text-sm">सोमवार-शुक्रवार, सुबह 9 बजे - शाम 6 बजे उपलब्ध</p>
+                <p className="text-gray-500 text-sm">
+                  {t('language') === 'en' ? 'Available Mon-Fri, 9:00 AM - 6:00 PM' : 'सोमवार-शुक्रवार, सुबह 9 बजे - शाम 6 बजे उपलब्ध'}
+                </p>
               </div>
             </div>
 
             <div className="flex items-start space-x-3">
               <MapPin className="text-blue-500 mt-1" size={20} />
               <div>
-                <h3 className="font-semibold text-gray-900">स्थानीय कार्यालयों में जाएं</h3>
-                <p className="text-gray-700">ग्राम पंचायत या स्कूल कार्यालय</p>
-                <p className="text-gray-500 text-sm">हमारी निर्देशिका में स्थान खोजें</p>
+                <h3 className="font-semibold text-gray-900">{t('guide.help.visit')}</h3>
+                <p className="text-gray-700">{t('guide.help.office.desc')}</p>
+                <p className="text-gray-500 text-sm">{t('guide.help.directory')}</p>
               </div>
             </div>
           </div>

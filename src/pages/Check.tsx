@@ -241,12 +241,12 @@ const Check: React.FC = () => {
 
         {/* Important Notes */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mt-8">
-          <h3 className="text-lg font-semibold text-blue-900 mb-4">Important Notes</h3>
+          <h3 className="text-lg font-semibold text-blue-900 mb-4">{t('common.important.notes')}</h3>
           <ul className="space-y-2 text-blue-800 text-sm">
-            <li>• This is a demo service. In production, this would connect to actual government databases</li>
-            <li>• Keep your mobile number updated and linked with Aadhaar</li>
-            <li>• Regularly check your account status before scholarship application deadlines</li>
-            <li>• Contact your bank if there are any discrepancies in the information</li>
+            <li>• {t('language') === 'en' ? 'This is a demo service. In production, this would connect to actual government databases' : 'यह एक डेमो सेवा है। उत्पादन में, यह वास्तविक सरकारी डेटाबेस से जुड़ेगा'}</li>
+            <li>• {t('language') === 'en' ? 'Keep your mobile number updated and linked with Aadhaar' : 'अपना मोबाइल नंबर अपडेट रखें और आधार से लिंक करें'}</li>
+            <li>• {t('language') === 'en' ? 'Regularly check your account status before scholarship application deadlines' : 'छात्रवृत्ति आवेदन की समय सीमा से पहले नियमित रूप से अपने खाते की स्थिति जांचें'}</li>
+            <li>• {t('language') === 'en' ? 'Contact your bank if there are any discrepancies in the information' : 'यदि जानकारी में कोई विसंगति है तो अपने बैंक से संपर्क करें'}</li>
           </ul>
         </div>
       </div>

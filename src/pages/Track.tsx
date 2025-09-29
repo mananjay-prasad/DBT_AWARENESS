@@ -271,29 +271,29 @@ const Track: React.FC = () => {
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mt-8">
           <h3 className="text-lg font-semibold text-blue-900 mb-4 flex items-center">
             <FileText className="mr-2" size={20} />
-            Need Help with Tracking?
+            {t('track.help.title')}
           </h3>
           <div className="grid md:grid-cols-2 gap-6 text-blue-800 text-sm">
             <div>
-              <p className="font-medium mb-2">Application ID Not Working?</p>
+              <p className="font-medium mb-2">{t('track.help.id.not.working')}</p>
               <ul className="space-y-1">
-                <li>• Check your confirmation email/SMS</li>
-                <li>• Verify the complete application ID</li>
-                <li>• Contact your school or Gram Panchayat</li>
+                <li>• {language === 'en' ? 'Check your confirmation email/SMS' : 'अपना पुष्टिकरण ईमेल/एसएमएस जांचें'}</li>
+                <li>• {language === 'en' ? 'Verify the complete application ID' : 'पूरी एप्लिकेशन आईडी सत्यापित करें'}</li>
+                <li>• {language === 'en' ? 'Contact your school or Gram Panchayat' : 'अपने स्कूल या ग्राम पंचायत से संपर्क करें'}</li>
               </ul>
             </div>
             <div>
-              <p className="font-medium mb-2">Application Delayed?</p>
+              <p className="font-medium mb-2">{t('track.help.delayed')}</p>
               <ul className="space-y-1">
-                <li>• Processing time: 15-30 working days</li>
-                <li>• Check document requirements</li>
-                <li>• Ensure DBT is enabled on your account</li>
+                <li>• {language === 'en' ? 'Processing time: 15-30 working days' : 'प्रसंस्करण समय: 15-30 कार्य दिवस'}</li>
+                <li>• {language === 'en' ? 'Check document requirements' : 'दस्तावेज़ आवश्यकताएं जांचें'}</li>
+                <li>• {language === 'en' ? 'Ensure DBT is enabled on your account' : 'सुनिश्चित करें कि आपके खाते पर डीबीटी सक्षम है'}</li>
               </ul>
             </div>
           </div>
           <div className="mt-4 p-3 bg-blue-100 rounded-lg">
             <p className="text-blue-800 text-sm">
-              <strong>Helpline:</strong> 1800-XXX-XXXX | <strong>Email:</strong> scholarships@mosje.gov.in
+              <strong>{language === 'en' ? 'Helpline:' : 'हेल्पलाइन:'}</strong> 1800-XXX-XXXX | <strong>{language === 'en' ? 'Email:' : 'ईमेल:'}</strong> scholarships@mosje.gov.in
             </p>
           </div>
         </div>

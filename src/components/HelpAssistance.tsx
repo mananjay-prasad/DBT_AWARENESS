@@ -10,7 +10,7 @@ interface HelpAssistanceProps {
 
 const HelpAssistance: React.FC<HelpAssistanceProps> = ({ isOpen, onClose }) => {
   const [activeTab, setActiveTab] = useState('contact');
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { isDark } = useTheme();
 
   if (!isOpen) return null;

@@ -197,11 +197,11 @@ const Schools: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <h3 className="text-xl font-bold text-gray-900">
-                        {language === 'en' ? school.name :
-                          school.name === 'Government Senior Secondary School, Rampur' ? 'सरकारी वरिष्ठ माध्यमिक विद्यालय, रामपुर' :
-                          school.name === 'Holy Angels Higher Secondary School' ? 'होली एंजल्स उच्चतर माध्यमिक विद्यालय' :
-                          school.name === 'Sarvodaya Vidyalaya, Ganga Nagar' ? 'सर्वोदय विद्यालय, गंगा नगर' :
-                          school.name === 'Kendriya Vidyalaya, Krishnapur' ? 'केंद्रीय विद्यालय, कृष्णपुर' : school.name
+                        {language === 'en' ? school.name : 
+                          school.id === 1 ? 'सरकारी वरिष्ठ माध्यमिक विद्यालय, रामपुर' :
+                          school.id === 2 ? 'होली एंजल्स उच्चतर माध्यमिक विद्यालय' :
+                          school.id === 3 ? 'सर्वोदय विद्यालय, गंगा नगर' :
+                          school.id === 4 ? 'केंद्रीय विद्यालय, कृष्णपुर' : school.name
                         }
                       </h3>
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${getTypeColor(school.type)}`}>
@@ -234,7 +234,12 @@ const Schools: React.FC = () => {
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('schools.working.hours')}</p>
                     <p className="font-medium text-green-600">
-                      {language === 'en' ? school.workingHours : 'सोम-शनि: सुबह 8:00 - दोपहर 2:00'}
+                      {language === 'en' ? school.workingHours : 
+                        school.id === 1 ? 'सोम-शनि: सुबह 8:00 - दोपहर 2:00' :
+                        school.id === 2 ? 'सोम-शनि: सुबह 7:30 - दोपहर 1:30' :
+                        school.id === 3 ? 'सोम-शनि: सुबह 7:45 - दोपहर 1:45' :
+                        school.id === 4 ? 'सोम-शनि: सुबह 8:00 - दोपहर 2:00' : school.workingHours
+                      }
                     </p>
                   </div>
                 </div>
@@ -242,7 +247,12 @@ const Schools: React.FC = () => {
                 <div className="mb-4">
                   <p className="text-sm text-gray-500 mb-1">{t('schools.address')}</p>
                   <p className="text-gray-700">
-                    {language === 'en' ? school.address : 'रामपुर गांव, केंद्रीय जिला, पिन - 123456'}
+                    {language === 'en' ? school.address : 
+                      school.id === 1 ? 'गांव रामपुर, केंद्रीय जिला, पिन - 123456' :
+                      school.id === 2 ? 'सेक्टर 15, उत्तर जिला, पिन - 123457' :
+                      school.id === 3 ? 'ब्लॉक सी, गंगा नगर, दक्षिण जिला, पिन - 123458' :
+                      school.id === 4 ? 'कृष्णपुर कैंटोनमेंट, पूर्व जिला, पिन - 123459' : school.address
+                    }
                   </p>
                 </div>
 
@@ -318,7 +328,7 @@ const Schools: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                 <GraduationCap className="mr-2" size={20} />
-                {t('schools.quick.stats')}
+                {language === 'en' ? 'Quick Stats' : 'त्वरित आंकड़े'}
               </h3>
               <div className="space-y-4">
                 <div className="text-center p-3 bg-green-50 rounded-lg">
@@ -356,25 +366,25 @@ const Schools: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
                 <FileText className="mr-2" size={20} />
-                {t('schools.school.resources')}
+                {language === 'en' ? 'School Resources' : 'स्कूल संसाधन'}
               </h3>
               <div className="space-y-3">
                 {documents.map((doc, docIndex) => (
                   <div key={docIndex} className="border border-gray-200 rounded-lg p-3">
                     <h4 className="font-medium text-gray-900 mb-1 text-sm">
                       {language === 'en' ? doc.title :
-                        doc.title === 'School DBT Enrollment Protocol' ? 'स्कूल डीबीटी नामांकन प्रोटोकॉल' :
-                        doc.title === 'Student Information Brochure' ? 'छात्र सूचना ब्रोशर' :
-                        doc.title === 'Parent-Teacher Meeting Presentation' ? 'अभिभावक-शिक्षक बैठक प्रस्तुति' :
-                        doc.title === 'School Notice Board Template' ? 'स्कूल नोटिस बोर्ड टेम्प्लेट' : doc.title
+                        docIndex === 0 ? 'स्कूल डीबीटी नामांकन प्रोटोकॉल' :
+                        docIndex === 1 ? 'छात्र सूचना ब्रोशर' :
+                        docIndex === 2 ? 'अभिभावक-शिक्षक बैठक प्रस्तुति' :
+                        docIndex === 3 ? 'स्कूल नोटिस बोर्ड टेम्प्लेट' : doc.title
                       }
                     </h4>
                     <p className="text-xs text-gray-600 mb-2">
                       {language === 'en' ? doc.description :
-                        doc.description === 'Guidelines for school administrators to assist students with DBT setup' ? 'छात्रों को डीबीटी सेटअप में सहायता करने के लिए स्कूल प्रशासकों के लिए दिशानिर्देश' :
-                        doc.description === 'Comprehensive brochure about Aadhaar vs DBT for distribution to students' ? 'छात्रों को वितरण के लिए आधार बनाम डीबीटी के बारे में व्यापक ब्रोशर' :
-                        doc.description === 'Ready-to-use presentation slides for PTA meetings on DBT awareness' ? 'डीबीटी जागरूकता पर पीटीए बैठकों के लिए तैयार प्रस्तुति स्लाइड' :
-                        doc.description === 'Template for displaying DBT information on school notice boards' ? 'स्कूल नोटिस बोर्ड पर डीबीटी जानकारी प्रदर्शित करने के लिए टेम्प्लेट' : doc.description
+                        docIndex === 0 ? 'छात्रों को डीबीटी सेटअप में सहायता करने के लिए स्कूल प्रशासकों के लिए दिशानिर्देश' :
+                        docIndex === 1 ? 'छात्रों को वितरण के लिए आधार बनाम डीबीटी के बारे में व्यापक ब्रोशर' :
+                        docIndex === 2 ? 'डीबीटी जागरूकता पर पीटीए बैठकों के लिए तैयार प्रस्तुति स्लाइड' :
+                        docIndex === 3 ? 'स्कूल नोटिस बोर्ड पर डीबीटी जानकारी प्रदर्शित करने के लिए टेम्प्लेट' : doc.description
                       }
                     </p>
                     <div className="flex items-center justify-between">
@@ -391,18 +401,25 @@ const Schools: React.FC = () => {
 
             {/* Support */}
             <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-blue-900 mb-4">{t('schools.for.principals')}</h3>
+              <h3 className="text-lg font-bold text-blue-900 mb-4">
+                {language === 'en' ? 'For Principals & Teachers' : 'प्रधानाचार्यों और शिक्षकों के लिए'}
+              </h3>
               <div className="space-y-3 text-sm">
                 <p className="text-blue-800">
-                  {t('schools.training.help')}
+                  {language === 'en' 
+                    ? 'Need training materials or guidance on helping students with DBT enrollment?'
+                    : 'छात्रों को डीबीटी नामांकन में मदद करने के लिए प्रशिक्षण सामग्री या मार्गदर्शन चाहिए?'
+                  }
                 </p>
                 <div className="flex items-center space-x-2">
                   <Phone className="text-blue-600" size={16} />
-                  <span className="text-blue-800">{t('schools.training.helpline')}</span>
+                  <span className="text-blue-800">
+                    {language === 'en' ? 'Training Helpline: 1800-XXX-YYYY' : 'प्रशिक्षण हेल्पलाइन: 1800-XXX-YYYY'}
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="text-blue-600" size={16} />
-                  <span className="text-blue-800">{t('schools.training.email')}</span>
+                  <span className="text-blue-800">training@dbtportal.gov.in</span>
                 </div>
               </div>
             </div>

@@ -141,7 +141,14 @@ const GramPanchayat: React.FC = () => {
               <div key={gp.id} className="bg-white rounded-xl shadow-lg p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{gp.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      {language === 'en' ? gp.name :
+                        gp.id === 1 ? 'रामपुर ग्राम पंचायत' :
+                        gp.id === 2 ? 'शिवपुर ग्राम पंचायत' :
+                        gp.id === 3 ? 'गंगा नगर ग्राम पंचायत' :
+                        gp.id === 4 ? 'कृष्णपुर ग्राम पंचायत' : gp.name
+                      }
+                    </h3>
                     <p className="text-gray-600">{gp.district}</p>
                   </div>
                   <div className="text-right">
@@ -153,17 +160,38 @@ const GramPanchayat: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-4 mb-4">
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('gp.sarpanch')}</p>
-                    <p className="font-medium">{language === 'en' ? gp.sarpanch : gp.sarpanch}</p>
+                    <p className="font-medium">
+                      {language === 'en' ? gp.sarpanch :
+                        gp.id === 1 ? 'श्रीमती सुनीता शर्मा' :
+                        gp.id === 2 ? 'श्री राजेश कुमार' :
+                        gp.id === 3 ? 'श्रीमती प्रिया देवी' :
+                        gp.id === 4 ? 'श्री सुरेश यादव' : gp.sarpanch
+                      }
+                    </p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t('gp.working.hours')}</p>
-                    <p className="font-medium text-green-600">{language === 'en' ? gp.workingHours : 'सोम-शुक्र: सुबह 10:00 - शाम 4:00'}</p>
+                    <p className="font-medium text-green-600">
+                      {language === 'en' ? gp.workingHours :
+                        gp.id === 1 ? 'सोम-शुक्र: सुबह 10:00 - शाम 4:00' :
+                        gp.id === 2 ? 'सोम-शनि: सुबह 9:00 - शाम 5:00' :
+                        gp.id === 3 ? 'सोम-शुक्र: सुबह 9:30 - शाम 4:30' :
+                        gp.id === 4 ? 'सोम-शुक्र: सुबह 10:00 - दोपहर 3:00' : gp.workingHours
+                      }
+                    </p>
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <p className="text-sm text-gray-500 mb-1">{t('gp.address')}</p>
-                  <p className="text-gray-700">{language === 'en' ? gp.address : 'गांव रामपुर, ब्लॉक - केंद्रीय, पिन - 123456'}</p>
+                  <p className="text-gray-700">
+                    {language === 'en' ? gp.address :
+                      gp.id === 1 ? 'गांव रामपुर, ब्लॉक - केंद्रीय, पिन - 123456' :
+                      gp.id === 2 ? 'गांव शिवपुर, ब्लॉक - उत्तर, पिन - 123457' :
+                      gp.id === 3 ? 'गांव गंगा नगर, ब्लॉक - दक्षिण, पिन - 123458' :
+                      gp.id === 4 ? 'गांव कृष्णपुर, ब्लॉक - पूर्व, पिन - 123459' : gp.address
+                    }
+                  </p>
                 </div>
 
                 <div className="mb-4">
@@ -246,18 +274,18 @@ const GramPanchayat: React.FC = () => {
                   <div key={docIndex} className="border border-gray-200 rounded-lg p-3">
                     <h4 className="font-medium text-gray-900 mb-1">
                       {language === 'en' ? doc.title :
-                        doc.title === 'DBT Enrollment Guide for Gram Panchayats' ? 'ग्राम पंचायतों के लिए डीबीटी नामांकन गाइड' :
-                        doc.title === 'Aadhaar vs DBT Awareness Poster' ? 'आधार बनाम डीबीटी जागरूकता पोस्टर' :
-                        doc.title === 'Common Issues Resolution Manual' ? 'सामान्य समस्याओं का समाधान मैनुअल' :
-                        doc.title === 'Scholarship Application Checklist' ? 'छात्रवृत्ति आवेदन चेकलिस्ट' : doc.title
+                        docIndex === 0 ? 'ग्राम पंचायतों के लिए डीबीटी नामांकन गाइड' :
+                        docIndex === 1 ? 'आधार बनाम डीबीटी जागरूकता पोस्टर' :
+                        docIndex === 2 ? 'सामान्य समस्याओं का समाधान मैनुअल' :
+                        docIndex === 3 ? 'छात्रवृत्ति आवेदन चेकलिस्ट' : doc.title
                       }
                     </h4>
                     <p className="text-sm text-gray-600 mb-2">
                       {language === 'en' ? doc.description :
-                        doc.description === 'Step-by-step guide for GP officials to help residents with DBT enrollment' ? 'निवासियों को डीबीटी नामांकन में मदद करने के लिए जीपी अधिकारियों के लिए चरण-दर-चरण गाइड' :
-                        doc.description === 'Educational poster for display at GP offices' ? 'जीपी कार्यालयों में प्रदर्शन के लिए शैक्षिक पोस्टर' :
-                        doc.description === 'Solutions for frequently encountered DBT and Aadhaar linking problems' ? 'अक्सर आने वाली डीबीटी और आधार लिंकिंग समस्याओं के समाधान' :
-                        doc.description === 'Complete checklist for SC scholarship applications' ? 'एससी छात्रवृत्ति आवेदन के लिए पूर्ण चेकलिस्ट' : doc.description
+                        docIndex === 0 ? 'निवासियों को डीबीटी नामांकन में मदद करने के लिए जीपी अधिकारियों के लिए चरण-दर-चरण गाइड' :
+                        docIndex === 1 ? 'जीपी कार्यालयों में प्रदर्शन के लिए शैक्षिक पोस्टर' :
+                        docIndex === 2 ? 'अक्सर आने वाली डीबीटी और आधार लिंकिंग समस्याओं के समाधान' :
+                        docIndex === 3 ? 'एससी छात्रवृत्ति आवेदन के लिए पूर्ण चेकलिस्ट' : doc.description
                       }
                     </p>
                     <div className="flex items-center justify-between">

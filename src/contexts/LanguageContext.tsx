@@ -265,6 +265,12 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'schools.total.students.stat': 'Total Students',
     'schools.sc.students.stat': 'SC Students',
     'schools.schools.listed': 'Schools Listed',
+    'schools.school.resources': 'School Resources',
+    'schools.for.principals': 'For Principals & Teachers',
+    'schools.training.help': 'Need training materials or guidance on helping students with DBT enrollment?',
+    'schools.training.helpline': 'Training Helpline: 1800-XXX-YYYY',
+    'schools.quick.stats': 'Quick Stats',
+    'schools.training.email': 'training@dbtportal.gov.in',
     
     // Schools
     'schools.title': 'Schools Directory',
@@ -614,6 +620,12 @@ const translations: Record<'en' | 'hi', Record<string, TranslationValue>> = {
     'schools.principal': 'प्रधानाचार्य',
     'schools.working.hours': 'कार्य समय',
     'schools.address': 'पता',
+    'schools.school.resources': 'स्कूल संसाधन',
+    'schools.for.principals': 'प्रधानाचार्यों और शिक्षकों के लिए',
+    'schools.training.help': 'छात्रों को डीबीटी नामांकन में मदद करने के लिए प्रशिक्षण सामग्री या मार्गदर्शन चाहिए?',
+    'schools.training.helpline': 'प्रशिक्षण हेल्पलाइन: 1800-XXX-YYYY',
+    'schools.quick.stats': 'त्वरित आंकड़े',
+    'schools.training.email': 'training@dbtportal.gov.in',
     
     // Documents page
     'documents.categories.forms': 'Forms',

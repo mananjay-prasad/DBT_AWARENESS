@@ -30,7 +30,7 @@ const AIChat: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBVwwgUly3S-aQN5Id0puT8Ao9QHjX72IQ`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBVwwgUly3S-aQN5Id0puT8Ao9QHjX72IQ`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,14 +38,35 @@ const AIChat: React.FC = () => {
         body: JSON.stringify({
           contents: [{
             parts: [{
-              text: `You are a helpful assistant for the DBT Awareness Portal. Answer questions about Direct Beneficiary Transfer (DBT), Aadhaar linking, bank accounts, scholarships for SC students, and related government services. Keep responses concise and helpful. User question: ${message}`
+              text: `You are a helpful assistant for the DBT Awareness Portal in India. You help users understand the difference between Aadhaar-linked and DBT-enabled bank accounts, especially for SC (Scheduled Caste) students applying for Pre-Matric and Post-Matric scholarships.
+
+Key Information:
+- Aadhaar-linked account: Basic Aadhaar number linked to bank account for KYC
+- DBT-enabled account: Specially configured account that can receive government benefits directly
+- For SC scholarships, students MUST have DBT-enabled Aadhaar-seeded bank accounts
+- To enable DBT: Visit bank branch → Fill DBT enrollment form → Bank activates within 2-3 days
+- Required documents: Original Aadhaar card, bank passbook, mobile number linked with Aadhaar
+- Common issues: Mobile not linked with Aadhaar, dormant account, name mismatch
+
+Always provide accurate, helpful information about DBT, scholarships, bank account requirements, and guide users to appropriate resources. Keep responses concise but informative. If asked about topics outside DBT/scholarships/banking, politely redirect to the relevant topic.
+
+User question: ${message}`
             }]
           }]
         })
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
-      const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not process your request. Please try again.';
+      
+      let aiResponse = 'Sorry, I could not process your request. Please try again.';
+      
+      if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
+        aiResponse = data.candidates[0].content.parts[0].text;
+      }
 
       const aiMessage: Message = {
         id: Date.now() + 1,
@@ -56,9 +77,10 @@ const AIChat: React.FC = () => {
 
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
+      console.error('AI Chat Error:', error);
       const errorMessage: Message = {
         id: Date.now() + 1,
-        text: 'Sorry, I encountered an error. Please try again later.',
+        text: 'Sorry, I encountered an error while processing your request. Please check your internet connection and try again. If the problem persists, contact our helpline at 1800-XXX-XXXX.',
         isUser: false,
         timestamp: new Date()
       };
@@ -87,7 +109,7 @@ const AIChat: React.FC = () => {
         {messages.length === 0 ? (
           <div className="text-center text-gray-500 mt-20">
             <Bot size={48} className="mx-auto mb-2 text-gray-400" />
-            <p>Ask me anything about DBT, scholarships, or account verification!</p>
+            <p className="px-4">{t('chat.placeholder')}</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -106,7 +128,7 @@ const AIChat: React.FC = () => {
                   <div className="flex items-start space-x-2">
                     {!msg.isUser && <Bot size={16} className="text-orange-500 mt-1 flex-shrink-0" />}
                     {msg.isUser && <User size={16} className="text-white mt-1 flex-shrink-0" />}
-                    <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
+                    <p className="text-sm whitespace-pre-wrap break-words">{msg.text}</p>
                   </div>
                 </div>
               </div>
@@ -130,20 +152,20 @@ const AIChat: React.FC = () => {
       </div>
 
       {/* Input */}
-      <div className="flex space-x-2">
+      <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder={t('chat.placeholder')}
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
           disabled={loading}
         />
         <button
           onClick={sendMessage}
           disabled={loading || !message.trim()}
-          className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[60px]"
         >
           <Send size={20} />
         </button>

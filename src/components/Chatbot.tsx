@@ -71,7 +71,7 @@ const Chatbot: React.FC = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-lg shadow-2xl z-50 flex flex-col">
+        <div className="fixed bottom-6 right-6 w-80 sm:w-96 h-96 sm:h-[500px] bg-white rounded-lg shadow-2xl z-50 flex flex-col max-w-[calc(100vw-3rem)]">
           {/* Header */}
           <div className="bg-orange-500 text-white p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -108,18 +108,18 @@ const Chatbot: React.FC = () => {
 
           {/* Input */}
           <div className="p-4 border-t">
-            <div className="flex space-x-2">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Type your question..."
-                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-500"
+                className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:border-orange-500 text-sm"
               />
               <button
                 onClick={handleSendMessage}
-                className="bg-orange-500 text-white p-2 rounded-lg hover:bg-orange-600"
+                className="bg-orange-500 text-white p-2 rounded-lg hover:bg-orange-600 flex items-center justify-center min-w-[44px]"
               >
                 <Send size={16} />
               </button>

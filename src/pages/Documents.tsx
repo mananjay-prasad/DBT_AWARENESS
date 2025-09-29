@@ -213,12 +213,12 @@ const Documents: React.FC = () => {
 
         {/* Search and Filter */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-3 text-gray-400" size={20} />
               <input
                 type="text"
-                placeholder="Search documents..."
+                placeholder={t('documents.search')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
@@ -239,15 +239,15 @@ const Documents: React.FC = () => {
           </div>
           
           <div className="mt-4 flex items-center justify-between text-sm text-gray-600">
-            <span>Showing {filteredDocuments.length} documents</span>
-            <span>Total downloads: {documents.reduce((total, doc) => total + doc.downloads, 0).toLocaleString()}</span>
+            <span>{t('documents.showing')} {filteredDocuments.length} documents</span>
+            <span>{t('documents.total')} {documents.reduce((total, doc) => total + doc.downloads, 0).toLocaleString()}</span>
           </div>
         </div>
 
         {/* Important Documents Section */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Essential Documents</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('documents.essential')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredDocuments
               .filter(doc => doc.isImportant)
               .map((doc) => (
@@ -277,13 +277,13 @@ const Documents: React.FC = () => {
 
                   <div className="grid grid-cols-2 gap-4 text-xs text-gray-500 mb-4">
                     <div>
-                      <span className="font-medium">Type:</span> {doc.type}
+                      <span className="font-medium">प्रकार:</span> {doc.type}
                     </div>
                     <div>
-                      <span className="font-medium">Size:</span> {doc.size}
+                      <span className="font-medium">आकार:</span> {doc.size}
                     </div>
                     <div className="col-span-2">
-                      <span className="font-medium">Language:</span> {doc.language}
+                      <span className="font-medium">भाषा:</span> {doc.language}
                     </div>
                   </div>
 
@@ -303,11 +303,11 @@ const Documents: React.FC = () => {
 
         {/* All Documents Section */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">All Documents</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('documents.all')}</h2>
           <div className="space-y-4">
             {filteredDocuments.map((doc) => (
               <div key={doc.id} className="bg-white rounded-xl shadow-lg p-6">
-                <div className="flex items-start justify-between">
+                <div className="flex flex-col lg:flex-row items-start justify-between gap-4">
                   <div className="flex items-start space-x-4 flex-1">
                     <div className="flex-shrink-0 mt-1">
                       {getFileIcon(doc.type)}
@@ -341,13 +341,13 @@ const Documents: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 ml-4">
+                  <div className="flex items-center gap-2 w-full lg:w-auto lg:ml-4">
                     <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
                       <Eye size={16} />
                     </button>
-                    <button className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors flex items-center">
+                    <button className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors flex items-center flex-1 lg:flex-none justify-center">
                       <Download size={16} className="mr-2" />
-                      Download
+                      {t('common.download')}
                     </button>
                   </div>
                 </div>
@@ -358,32 +358,32 @@ const Documents: React.FC = () => {
           {filteredDocuments.length === 0 && (
             <div className="text-center py-12 bg-white rounded-xl shadow-lg">
               <FileText className="text-gray-400 mx-auto mb-4" size={48} />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No Documents Found</h3>
-              <p className="text-gray-600">Try adjusting your search terms or category filter.</p>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">{t('documents.noResults')}</h3>
+              <p className="text-gray-600">{t('documents.noResults.desc')}</p>
             </div>
           )}
         </div>
 
         {/* Help Section */}
         <div className="mt-12 bg-blue-50 border border-blue-200 rounded-xl p-8">
-          <h3 className="text-xl font-bold text-blue-900 mb-4">Need Help with Documents?</h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h3 className="text-xl font-bold text-blue-900 mb-4">{t('documents.help.title')}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold text-blue-800 mb-2">Document Support</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t('documents.help.support')}</h4>
               <ul className="space-y-1 text-blue-700 text-sm">
-                <li>• All documents are available in English and Hindi</li>
-                <li>• Forms are fillable PDFs for your convenience</li>
-                <li>• Check file size before downloading on mobile data</li>
-                <li>• Print documents on plain A4 paper</li>
+                <li>• सभी दस्तावेज़ अंग्रेजी और हिंदी में उपलब्ध हैं</li>
+                <li>• आपकी सुविधा के लिए फॉर्म भरने योग्य पीडीएफ हैं</li>
+                <li>• मोबाइल डेटा पर डाउनलोड करने से पहले फ़ाइल का आकार जांचें</li>
+                <li>• दस्तावेज़ों को सादे A4 पेपर पर प्रिंट करें</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-800 mb-2">Technical Issues?</h4>
+              <h4 className="font-semibold text-blue-800 mb-2">{t('documents.help.technical')}</h4>
               <p className="text-blue-700 text-sm mb-2">
-                Having trouble downloading or opening documents?
+                {t('documents.help.technical.desc')}
               </p>
               <div className="space-y-1 text-sm">
-                <p className="text-blue-800">📞 Helpline: 1800-XXX-XXXX</p>
+                <p className="text-blue-800">📞 हेल्पलाइन: 1800-XXX-XXXX</p>
                 <p className="text-blue-800">✉️ Email: documents@dbtportal.gov.in</p>
               </div>
             </div>

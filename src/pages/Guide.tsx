@@ -31,35 +31,35 @@ const Guide: React.FC = () => {
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <AlertCircle className="text-blue-500 mr-3" size={28} />
-            {t('guide.difference.title')}
+            What's the Difference?
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border-2 border-blue-200 rounded-lg p-6">
               <div className="flex items-center mb-4">
                 <CreditCard className="text-blue-500 mr-3" size={24} />
-                <h3 className="text-lg font-semibold text-blue-700">Aadhaar Linked Account</h3>
+                <h3 className="text-lg font-semibold text-blue-700">
+                  {t('home.aadhaar.title')}
+                </h3>
               </div>
-              <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• Basic Aadhaar number linked to account</li>
-                <li>• Used for KYC compliance</li>
-                <li>• May not receive direct benefits</li>
-                <li>• Standard banking services</li>
-                <li>• No special government transfer facility</li>
+              <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                {(t('guide.aadhaar.features') as string[]).map((feature, index) => (
+                  <li key={index}>• {feature}</li>
+                ))}
               </ul>
             </div>
 
             <div className="border-2 border-green-200 rounded-lg p-6 bg-green-50">
               <div className="flex items-center mb-4">
                 <Landmark className="text-green-500 mr-3" size={24} />
-                <h3 className="text-lg font-semibold text-green-700">DBT Enabled Account</h3>
+                <h3 className="text-lg font-semibold text-green-700">
+                  {t('home.dbt.title')}
+                </h3>
               </div>
-              <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• <strong>Specially configured for govt benefits</strong></li>
-                <li>• Direct scholarship transfer capability</li>
-                <li>• Required for SC Pre & Post-Matric scholarships</li>
-                <li>• Faster, secure benefit delivery</li>
-                <li>• Eliminates middleman delays</li>
+              <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+                {(t('guide.dbt.features') as string[]).map((feature, index) => (
+                  <li key={index}>• {feature}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -69,7 +69,7 @@ const Guide: React.FC = () => {
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <CheckCircle className="text-green-500 mr-3" size={28} />
-            How to Enable DBT: Step-by-Step
+            {t('guide.howto.title')}
           </h2>
 
           <div className="space-y-6">
@@ -78,9 +78,9 @@ const Guide: React.FC = () => {
                 1
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Visit Your Bank Branch</h3>
-                <p className="text-gray-700 text-sm">
-                  Go to the branch where your account is maintained with original Aadhaar card and bank passbook.
+                <h3 className="font-semibold text-gray-900 mb-2">{t('guide.step1.title')}</h3>
+                <p className="text-gray-700 text-sm md:text-base">
+                  {t('guide.step1.desc')}
                 </p>
               </div>
             </div>
@@ -90,9 +90,9 @@ const Guide: React.FC = () => {
                 2
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Fill DBT Enrollment Form</h3>
-                <p className="text-gray-700 text-sm">
-                  Request and complete the DBT enrollment form. Bank staff will assist you with the process.
+                <h3 className="font-semibold text-gray-900 mb-2">{t('guide.step2.title')}</h3>
+                <p className="text-gray-700 text-sm md:text-base">
+                  {t('guide.step2.desc')}
                 </p>
               </div>
             </div>
@@ -102,9 +102,9 @@ const Guide: React.FC = () => {
                 3
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Verify Details</h3>
-                <p className="text-gray-700 text-sm">
-                  Ensure your Aadhaar details match bank records. Update if there are any discrepancies.
+                <h3 className="font-semibold text-gray-900 mb-2">{t('guide.step3.title')}</h3>
+                <p className="text-gray-700 text-sm md:text-base">
+                  {t('guide.step3.desc')}
                 </p>
               </div>
             </div>
@@ -114,9 +114,9 @@ const Guide: React.FC = () => {
                 4
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">DBT Activation</h3>
-                <p className="text-gray-700 text-sm">
-                  Bank will activate DBT facility within 2-3 working days. You'll receive SMS confirmation.
+                <h3 className="font-semibold text-gray-900 mb-2">{t('guide.step4.title')}</h3>
+                <p className="text-gray-700 text-sm md:text-base">
+                  {t('guide.step4.desc')}
                 </p>
               </div>
             </div>
@@ -127,47 +127,31 @@ const Guide: React.FC = () => {
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <FileText className="text-purple-500 mr-3" size={28} />
-            Required Documents
+            {t('guide.documents.title')}
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Essential Documents:</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">आवश्यक दस्तावेज:</h3>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center">
-                  <CheckCircle className="text-green-500 mr-2" size={16} />
-                  Original Aadhaar Card
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="text-green-500 mr-2" size={16} />
-                  Bank Account Passbook
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="text-green-500 mr-2" size={16} />
-                  Mobile number linked with Aadhaar
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="text-green-500 mr-2" size={16} />
-                  DBT Enrollment Form
-                </li>
+                {(t('guide.documents.essential') as string[]).map((doc, index) => (
+                  <li key={index} className="flex items-center">
+                    <CheckCircle className="text-green-500 mr-2 flex-shrink-0" size={16} />
+                    <span className="text-sm md:text-base">{doc}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Additional Requirements:</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">अतिरिक्त आवश्यकताएं:</h3>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center">
-                  <CheckCircle className="text-blue-500 mr-2" size={16} />
-                  Active bank account (not dormant)
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="text-blue-500 mr-2" size={16} />
-                  Valid KYC documentation
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="text-blue-500 mr-2" size={16} />
-                  Updated address proof
-                </li>
+                {(t('guide.documents.additional') as string[]).map((doc, index) => (
+                  <li key={index} className="flex items-center">
+                    <CheckCircle className="text-blue-500 mr-2 flex-shrink-0" size={16} />
+                    <span className="text-sm md:text-base">{doc}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -175,25 +159,25 @@ const Guide: React.FC = () => {
 
         {/* Benefits of DBT */}
         <section className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Benefits of DBT Enabled Account</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('guide.benefits.title')}</h2>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center p-4 bg-green-50 rounded-lg">
               <Clock className="text-green-600 mx-auto mb-3" size={32} />
-              <h3 className="font-semibold text-gray-900 mb-2">Faster Transfers</h3>
-              <p className="text-gray-700 text-sm">Direct transfer eliminates processing delays</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('guide.benefits.faster')}</h3>
+              <p className="text-gray-700 text-sm">{t('guide.benefits.faster.desc')}</p>
             </div>
 
             <div className="text-center p-4 bg-blue-50 rounded-lg">
               <CheckCircle className="text-blue-600 mx-auto mb-3" size={32} />
-              <h3 className="font-semibold text-gray-900 mb-2">100% Secure</h3>
-              <p className="text-gray-700 text-sm">No intermediary involvement, completely secure</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('guide.benefits.secure')}</h3>
+              <p className="text-gray-700 text-sm">{t('guide.benefits.secure.desc')}</p>
             </div>
 
             <div className="text-center p-4 bg-purple-50 rounded-lg">
               <Landmark className="text-purple-600 mx-auto mb-3" size={32} />
-              <h3 className="font-semibold text-gray-900 mb-2">Full Amount</h3>
-              <p className="text-gray-700 text-sm">Receive complete scholarship without deductions</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('guide.benefits.full')}</h3>
+              <p className="text-gray-700 text-sm">{t('guide.benefits.full.desc')}</p>
             </div>
           </div>
         </section>
@@ -202,28 +186,28 @@ const Guide: React.FC = () => {
         <section className="bg-yellow-50 rounded-xl border border-yellow-200 p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
             <AlertCircle className="text-yellow-600 mr-3" size={28} />
-            Common Issues & Solutions
+            {t('guide.issues.title')}
           </h2>
 
           <div className="space-y-4">
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-gray-900 mb-2">Issue: Mobile number not linked with Aadhaar</h3>
-              <p className="text-gray-700 text-sm">
-                <strong>Solution:</strong> Visit nearest Aadhaar center or use mAadhaar app to link mobile number first.
+              <h3 className="font-semibold text-gray-900 mb-2">{t('guide.issues.mobile')}</h3>
+              <p className="text-gray-700 text-sm md:text-base">
+                <strong>समाधान:</strong> {t('guide.issues.mobile.solution')}
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-gray-900 mb-2">Issue: Account shows as dormant/inactive</h3>
-              <p className="text-gray-700 text-sm">
-                <strong>Solution:</strong> Make a small deposit or withdrawal to reactivate account, then apply for DBT.
+              <h3 className="font-semibold text-gray-900 mb-2">{t('guide.issues.dormant')}</h3>
+              <p className="text-gray-700 text-sm md:text-base">
+                <strong>समाधान:</strong> {t('guide.issues.dormant.solution')}
               </p>
             </div>
 
             <div className="bg-white rounded-lg p-4">
-              <h3 className="font-semibold text-gray-900 mb-2">Issue: Name mismatch between Aadhaar and bank account</h3>
-              <p className="text-gray-700 text-sm">
-                <strong>Solution:</strong> Update name in either Aadhaar or bank account to ensure exact match.
+              <h3 className="font-semibold text-gray-900 mb-2">{t('guide.issues.mismatch')}</h3>
+              <p className="text-gray-700 text-sm md:text-base">
+                <strong>समाधान:</strong> {t('guide.issues.mismatch.solution')}
               </p>
             </div>
           </div>
@@ -231,24 +215,24 @@ const Guide: React.FC = () => {
 
         {/* Contact for Help */}
         <section className="bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Need Additional Help?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('guide.help.title')}</h2>
           
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="flex items-start space-x-3">
               <Phone className="text-green-500 mt-1" size={20} />
               <div>
-                <h3 className="font-semibold text-gray-900">Call Helpline</h3>
+                <h3 className="font-semibold text-gray-900">हेल्पलाइन कॉल करें</h3>
                 <p className="text-gray-700">1800-XXX-XXXX (Toll Free)</p>
-                <p className="text-gray-500 text-sm">Available Mon-Fri, 9 AM - 6 PM</p>
+                <p className="text-gray-500 text-sm">सोमवार-शुक्रवार, सुबह 9 बजे - शाम 6 बजे उपलब्ध</p>
               </div>
             </div>
 
             <div className="flex items-start space-x-3">
               <MapPin className="text-blue-500 mt-1" size={20} />
               <div>
-                <h3 className="font-semibold text-gray-900">Visit Local Offices</h3>
-                <p className="text-gray-700">Gram Panchayat or School offices</p>
-                <p className="text-gray-500 text-sm">Find locations in our directory</p>
+                <h3 className="font-semibold text-gray-900">स्थानीय कार्यालयों में जाएं</h3>
+                <p className="text-gray-700">ग्राम पंचायत या स्कूल कार्यालय</p>
+                <p className="text-gray-500 text-sm">हमारी निर्देशिका में स्थान खोजें</p>
               </div>
             </div>
           </div>

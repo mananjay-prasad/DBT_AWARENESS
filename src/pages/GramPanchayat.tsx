@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail, Search, FileText, Download } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const GramPanchayat: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
 
